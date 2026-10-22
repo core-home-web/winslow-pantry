@@ -43,8 +43,9 @@
     "suggest": "This page is also available in English.",
     "suggestLink": "View in English",
     "suggestDismiss": "No thanks",
-    "lineupTag": "Preview",
+    "lineupShowing": "Products shown:",
     "lineupLabel": "All products",
+    "lineupLaunchLabel": "Bag clips",
     "seeDetails": "See details"
   },
   "home": {

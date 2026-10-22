@@ -129,12 +129,12 @@ function langSwitch(L, key) {
         </details>`;
 }
 
-// Preview switch between the full collection and the launch product only.
+// Preview toggle between the full collection and the launch product only.
+// Styled as a nav item; the label names what is showing, the track flips with it.
 function lineupSwitch(L) {
-  return `<button class="lineup-switch" type="button" role="switch" aria-checked="${site.lineup === "all"}">
-          <span class="lineup-switch__tag">${esc(t(L, "global.lineupTag"))}</span>
-          <span class="lineup-switch__label">${esc(t(L, "global.lineupLabel"))}</span>
-          <span class="lineup-switch__track" aria-hidden="true"><span class="lineup-switch__thumb"></span></span>
+  return `<button class="site-nav__link lineup-toggle" type="button">
+          <span class="visually-hidden">${esc(t(L, "global.lineupShowing"))} </span>${byLineup(t(L, "global.lineupLabel"), t(L, "global.lineupLaunchLabel"))}
+          <span class="lineup-toggle__track" aria-hidden="true"><span class="lineup-toggle__thumb"></span></span>
         </button>`;
 }
 

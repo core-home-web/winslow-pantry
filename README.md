@@ -69,7 +69,7 @@ The brand colors are used exactly as specified in the guide. Accessibility comes
 
 ## Product preview switch
 
-While the team decides what to launch with, the header has a **Preview / All products** switch. On, the site shows the full collection. Off, it shows only the products marked `"launch": true` in `src/data/products.json` (the magnetic bag clips), and hides the Materials section, the jump menu and FAQ entries marked `"lineup": "all"`. Headings that count products swap to their `...Launch` wording in the i18n files. The choice is remembered per browser.
+While the team decides what to launch with, the header has a toggle styled like the other nav items. Its label names what is showing, **All products** or **Bag clips**, and clicking it flips the whole site between the two. All products shows the full collection. Bag clips shows only the products marked `"launch": true` in `src/data/products.json` (the magnetic bag clips), and hides the Materials section, the jump menu and FAQ entries marked `"lineup": "all"`. Headings that count products swap to their `...Launch` wording in the i18n files. The choice is saved in the browser, so it holds on every page and language and updates other open tabs.
 
 In `src/site.json`, `"lineup"` sets the default (`"all"` or `"launch"`) and `"lineupPreview"` shows the switch. To launch with one lineup, set `"lineup"` to it and `"lineupPreview"` to `false`, then rebuild.
 
