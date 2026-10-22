@@ -103,11 +103,6 @@ html[data-cvd="achromatopsia"] .sg-main { filter: url(#achromatopsia); }
 
 .sg-pattern { border-radius: var(--radius); overflow: hidden; background: var(--wp-paper); box-shadow: var(--shadow); }
 .sg-pattern figcaption { padding: var(--space-3) var(--space-4); font-size: var(--step--1); }
-.sg-fruit { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-5); }
-.sg-fruit li { text-align: center; font-weight: 700; }
-.sg-fruit__tile { aspect-ratio: 1; border-radius: var(--radius); background-size: 140px auto; margin-bottom: var(--space-3); box-shadow: var(--shadow); }
-.sg-fruit img { height: 80px; width: auto; margin: 0 auto var(--space-2); }
-@media (max-width: 760px) { .sg-fruit { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .sg-paper { min-height: 200px; display: grid; place-items: center; padding: var(--space-6); border-radius: var(--radius); background: linear-gradient(rgba(251, 246, 238, 0.72), rgba(251, 246, 238, 0.72)), url(/assets/img/textures/paper.jpg) center / cover; text-align: center; box-shadow: var(--shadow); }
 .sg-paper p { max-width: 50ch; margin: 0; }
 
@@ -118,7 +113,7 @@ html[data-cvd="achromatopsia"] .sg-main { filter: url(#achromatopsia); }
 .sg-demo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--wp-paper); border-radius: var(--radius); }
 .sg-demo + .sg-demo { margin-top: var(--space-3); }
 .sg-demo .kicker { margin: 0; }
-.sg-demo .print-tag { margin: 0; }
+.sg-demo .print-tag, .sg-table .print-tag { margin: 0; }
 .sg-demo--dark { background: var(--wp-harbor); --color-focus: var(--wp-white); --color-focus-ring: var(--wp-ink); }
 .sg-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--space-3); }
 .sg-icons li { display: grid; justify-items: center; gap: var(--space-2); padding: var(--space-4) var(--space-2); background: var(--wp-paper); border-radius: var(--radius-sm); font-size: 0.78rem; }
@@ -149,3 +144,25 @@ html[data-cvd="achromatopsia"] .sg-main { filter: url(#achromatopsia); }
 .sg-md-tile { width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--wp-white); background-size: 120px auto; box-shadow: var(--shadow); }
 .sg-motion-demo .small { margin: 0; }
 @media (max-width: 760px) { .sg-md-pkg { height: 140px; } .sg-md-tile { width: 90px; height: 90px; } .sg-motion-demo__stage { height: 170px; } }
+
+/* -------------------------------------------------- prints (internal) */
+/* Prints are documented here only; the public site does not name them. */
+.print-tag { display: inline-flex; align-items: center; gap: 0.5em; font-size: var(--step--1); font-weight: 600; color: var(--wp-ink) !important; }
+.print-tag__swatch { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--wp-ink); background: center / 60px auto; }
+.print-tag__swatch--lemon { background-image: url(/assets/img/patterns/lemon.webp); }
+.print-tag__swatch--blueberry { background-image: url(/assets/img/patterns/blueberry-stripe.webp); background-size: 90px auto; }
+.print-tag__swatch--strawberry { background: repeating-linear-gradient(90deg, var(--wp-rose) 0 5px, var(--wp-white) 5px 9px); }
+
+.prints { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-4); }
+.print { text-align: center; }
+.print__tile {
+  position: relative; aspect-ratio: 1; border-radius: 50%; background-size: 160px auto; background-repeat: repeat;
+  border: 6px solid var(--wp-white); box-shadow: var(--shadow); margin-bottom: var(--space-4);
+}
+.print__spot { position: absolute; width: 52%; right: -10%; bottom: -8%; filter: drop-shadow(0 6px 8px rgba(28, 37, 46, 0.25)); }
+.print__name { font-size: var(--step-1); margin-bottom: var(--space-1); }
+.print__note { font-size: var(--step--1); color: var(--color-text-soft); }
+@media (max-width: 860px) { .prints { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .prints { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.prints .print__tile--strawberry { background: repeating-linear-gradient(90deg, var(--wp-rose) 0 22px, var(--wp-white) 22px 40px, var(--wp-rose) 40px 43px, var(--wp-white) 43px 62px); }
+@media (forced-colors: active) { .print-tag__swatch, .print__tile { forced-color-adjust: none; } }

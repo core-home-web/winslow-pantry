@@ -5,7 +5,7 @@
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { root, site, products, prints, DEFAULT, PAGES, locales, missing, t, tList, localeRoot, pageUrl, abs, ogImage, esc } from "./lib.mjs";
+import { root, site, products, DEFAULT, PAGES, locales, missing, t, tList, localeRoot, pageUrl, abs, ogImage, esc } from "./lib.mjs";
 import { icon, sprite } from "./icons.mjs";
 import { styleguide } from "./styleguide.mjs";
 
@@ -217,10 +217,6 @@ ${body}
 const kicker = (text, cls = "") => `<p class="kicker ${cls}">${esc(text)}</p>`;
 const arrowLink = (href, text, cls = "") => `<a class="text-link ${cls}" href="${href}">${esc(text)}${icon("arrow", "icon--inline")}</a>`;
 
-function printTag(L, id) {
-  return `<p class="print-tag"><span class="print-tag__swatch print-tag__swatch--${id}" aria-hidden="true"></span>${esc(t(L, "global.printLabel"))}: ${esc(t(L, `prints.${id}.name`))}</p>`;
-}
-
 function featureList(L, p, cls = "") {
   const labels = tList(L, `products.${p.slug}.features`);
   return `<ul class="features ${cls}" role="list">${labels.map((f, i) => `<li>${icon(p.features[i] || "check")}<span>${esc(f)}</span></li>`).join("")}</ul>`;
@@ -236,26 +232,9 @@ function productCard(L, p) {
             <p class="product-card__set">${esc(P("set"))}</p>
             <h3 class="product-card__name"><a href="${pageUrl(L, "collection")}#${p.slug}">${esc(P("name"))}</a></h3>
             <p>${esc(P("short"))}</p>
-            ${printTag(L, p.print)}
             <span class="product-card__more" aria-hidden="true">${esc(t(L, "global.seeDetails"))}${icon("arrow", "icon--inline")}</span>
           </div>
         </li>`;
-}
-
-function printsList(L, cls = "") {
-  return `<ul class="prints ${cls}" role="list">
-        ${prints
-          .map(
-            (p) => `<li class="print">
-          <div class="print__tile" style="background-image:url(${p.tile})">
-            <img class="print__spot" src="${p.spot}" width="${p.spotWidth}" height="${p.spotHeight}" alt="" loading="lazy">
-          </div>
-          <h3 class="print__name">${esc(t(L, `prints.${p.id}.name`))}</h3>
-          <p class="print__note">${esc(t(L, `prints.${p.id}.note`))}</p>
-        </li>`
-          )
-          .join("\n        ")}
-      </ul>`;
 }
 
 function valuesList(L) {
@@ -353,18 +332,7 @@ function home(L) {
       </div>
     </section>
 
-    <section class="section section--paper" aria-labelledby="prints-title">
-      <div class="container">
-        <div class="section-head">
-          ${kicker(H("printsKicker"))}
-          <h2 class="h2" id="prints-title">${esc(H("printsTitle"))}</h2>
-          <p class="lead">${esc(H("printsLead"))}</p>
-        </div>
-        ${printsList(L)}
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="materials-title">
+    <section class="section section--paper" aria-labelledby="materials-title">
       <div class="container">
         <div class="section-head">
           ${kicker(H("materialsKicker"))}
@@ -437,16 +405,6 @@ function story(L) {
       </div>
     </section>
 
-    <section class="section section--paper" aria-labelledby="s3-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2" id="s3-title">${esc(S("s3Title"))}</h2>
-          <p class="lead">${esc(S("s3P1"))}</p>
-        </div>
-        ${printsList(L, "prints--compact")}
-      </div>
-    </section>
-
     <section class="section section--blue" aria-labelledby="values-title">
       <div class="container">
         <div class="section-head">
@@ -486,7 +444,6 @@ function collection(L) {
           <h2 class="h2" id="${p.slug}-title">${esc(P("name"))}</h2>
           <p class="lead">${esc(P("short"))}</p>
           <p>${esc(P("description"))}</p>
-          ${printTag(L, p.print)}
           <div class="product__details">
             <div>
               <h3 class="h4">${esc(C("features"))}</h3>
@@ -512,6 +469,8 @@ function collection(L) {
 function contact(L) {
   const C = (k) => t(L, `contact.${k}`);
   const email = site.contactEmail;
+  // The topic buttons go to the inquiry inbox; the direct line shows the public address.
+  const inquiry = site.inquiryEmail || email;
   const cards = { wholesale: "store", care: "spoon", press: "mail" };
   return `    ${pageHero(L, "contact", { art: `<img class="hero__spot" src="/assets/img/fruit/blueberry-sprig.webp" width="185" height="176" alt="">` })}
 
@@ -520,7 +479,7 @@ function contact(L) {
         <ul class="contact-cards" role="list">
           ${Object.entries(cards)
             .map(([k, ic]) => {
-              const href = `mailto:${email}?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
+              const href = `mailto:${inquiry}?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
               return `<li class="contact-card">
             ${icon(ic, "contact-card__icon")}
             <h2 class="h3">${esc(C(`cards.${k}.title`))}</h2>

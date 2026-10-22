@@ -135,15 +135,6 @@
     onEnter: (batch) => gsap.fromTo(batch, { y: 60, autoAlpha: 0, rotation: (i) => (i % 2 ? 1.5 : -1.5) }, { y: 0, autoAlpha: 1, rotation: 0, duration: 1, stagger: 0.1, ease: EASE.settle }),
   });
 
-  // Fruit prints roll in like oranges across a market table.
-  $$(".prints").forEach((list) => {
-    const tiles = $$(".print__tile", list);
-    const tl = gsap.timeline({ scrollTrigger: { trigger: list, start: "top 82%", once: true } });
-    tl.from(tiles, { x: -60, rotation: -120, scale: 0.8, autoAlpha: 0, duration: 1.1, stagger: 0.12, ease: EASE.settle })
-      .from($$(".print__spot", list), { scale: 0, rotation: 30, duration: 0.7, stagger: 0.12, ease: EASE.settle }, 0.4)
-      .from($$(".print__name, .print__note", list), { y: 12, autoAlpha: 0, duration: 0.6, stagger: 0.06 }, 0.5);
-  });
-
   // Material swatches turn in like a slice of wood on a lathe.
   $$(".material").forEach((m, i) => {
     const tl = gsap.timeline({ scrollTrigger: { trigger: m, start: "top 88%", once: true }, delay: i * 0.08 });

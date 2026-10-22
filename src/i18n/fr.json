@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Winslow Pantry | Ustensiles au charme du marché",
-      "description": "Des ustensiles de cuisine inspirés du marché fermier : bambou, planche en acacia et silicone, habillés de jolis motifs de fruits frais."
+      "description": "Des ustensiles de cuisine inspirés du marché fermier : bambou, planche en acacia et silicone, pensés pour cuisiner tous les jours."
     },
     "story": {
       "title": "Notre histoire | Winslow Pantry",
@@ -23,7 +23,7 @@
     "ogAlt": {
       "home": "Le logo Winslow Pantry à côté d'un étal de ferme rempli de produits frais",
       "story": "Winslow Pantry : Tout a commencé au marché",
-      "collection": "Ustensiles de cuisine Winslow Pantry dans leurs emballages à motifs de fruits",
+      "collection": "Ustensiles de cuisine Winslow Pantry dans leurs emballages",
       "contact": "Winslow Pantry : Nous serions ravis de vous lire"
     }
   },
@@ -43,21 +43,12 @@
     "suggest": "Cette page est aussi disponible en français.",
     "suggestLink": "Voir en français",
     "suggestDismiss": "Non merci",
-    "seeDetails": "Voir les détails",
-    "printLabel": "Motif"
-  },
-  "prints": {
-    "lemon": { "name": "Citron", "note": "Lumineux comme un matin de juillet" },
-    "blueberry": { "name": "Myrtille", "note": "Fraîche, douce et un peu sauvage" },
-    "cherry": { "name": "Cerise", "note": "Le premier signe de l'été" },
-    "orange": { "name": "Orange", "note": "Un rayon de soleil dans la main" },
-    "lime": { "name": "Citron vert", "note": "Vif et plein de peps" },
-    "strawberry": { "name": "Fraise", "note": "Sucrée et tout juste cueillie" }
+    "seeDetails": "Voir les détails"
   },
   "home": {
     "heroKicker": "tout droit du marché",
     "heroTitle": "Un charme simple au cœur de la maison",
-    "heroLead": "Winslow Pantry apporte dans votre cuisine l'esprit détendu d'un samedi au marché fermier. Des matériaux sincères, de joyeux motifs de fruits et des ustensiles qui méritent leur place près des fourneaux.",
+    "heroLead": "Winslow Pantry apporte dans votre cuisine l'esprit détendu d'un samedi au marché fermier. Des matériaux sincères, des couleurs joyeuses et des ustensiles qui méritent leur place près des fourneaux.",
     "heroCta": "Découvrir la collection",
     "heroCta2": "Lire notre histoire",
     "heroAlt": "Emballages Winslow Pantry du repose-cuillères en silicone, des pinces magnétiques et des entonnoirs en silicone",
@@ -69,11 +60,8 @@
     "storyAlt": "Un étal de ferme au bord d'un champ, avec des cagettes de tomates, de poivrons et de courges et des pots de miel sur une nappe vichy",
     "collectionKicker": "La collection",
     "collectionTitle": "Cinq alliés en cuisine pour commencer",
-    "collectionLead": "Chaque pièce est pensée pour servir tous les jours et porte un motif que vous aurez plaisir à voir sur le plan de travail.",
+    "collectionLead": "Chaque pièce est pensée pour servir tous les jours et faire bonne figure sur le plan de travail.",
     "collectionCta": "Voir toute la collection",
-    "printsKicker": "Nos motifs",
-    "printsTitle": "Cueillis sur l'étal du marché",
-    "printsLead": "Nos emballages portent des fruits peints à l'aquarelle, tels qu'ils sont à leur meilleur. Chaque motif a un nom, pour retrouver facilement celui que vous préférez.",
     "materialsKicker": "Matériaux",
     "materialsTitle": "Des matériaux sincères, faits pour servir",
     "materials": {
@@ -86,7 +74,7 @@
     "values": {
       "charm": { "name": "Un charme intemporel", "text": "Des créations qui semblent familières dès le premier jour et qui seront toujours aussi belles dans des années." },
       "function": { "name": "Pratique au quotidien", "text": "Chaque ustensile a un rôle et le remplit bien. Pas de gadgets, pas de tiroirs encombrés." },
-      "spirit": { "name": "Un esprit frais et accueillant", "text": "De la couleur et des motifs qui donnent à un dîner de semaine un petit air de samedi." }
+      "spirit": { "name": "Un esprit frais et accueillant", "text": "De la couleur et des détails joyeux qui donnent à un dîner de semaine un petit air de samedi." }
     },
     "partnerKicker": "Pour les revendeurs",
     "partnerTitle": "Accueillez Winslow Pantry dans vos rayons",
@@ -105,8 +93,6 @@
     "s2Title": "Charme intemporel, praticité au quotidien",
     "s2P1": "Un bon ustensile doit être joli accroché près de la cuisinière et travailler dur un mardi à dix-huit heures. Nous choisissons le bambou, l'acacia et le silicone parce qu'ils sont durables, faciles à entretenir et agréables en main.",
     "s2P2": "Puis nous ajoutons les détails qui font sourire, comme un citron à l'aquarelle sur l'emballage ou notre logo gravé dans le coin d'une planche à découper.",
-    "s3Title": "Au rythme des saisons",
-    "s3P1": "Nos motifs suivent le calendrier du marché. Citrons et citrons verts, cerises et myrtilles, oranges empilées dans une cagette en bois. Chacun apporte un esprit frais et accueillant au cœur de la maison.",
     "s3Alt": "Une planche à découper en acacia avec le logo Winslow Pantry gravé dans le coin",
     "ctaTitle": "Découvrez nos créations",
     "ctaText": "Cinq pièces pour commencer, chacune prête pour la cuisine de tous les jours.",
@@ -133,7 +119,7 @@
       "included": ["Cuillère ajourée", "Cuillère", "Cuillère-fourchette", "Spatule", "Spatule ajourée"],
       "features": ["Bambou naturel", "Respecte vos poêles", "Cinq formes essentielles"],
       "care": "Lavez à la main à l'eau chaude savonneuse et séchez aussitôt. Passez un peu d'huile alimentaire quand le bois paraît sec.",
-      "alt": "Set d'ustensiles en bambou Winslow Pantry dans son emballage à motif citron"
+      "alt": "Set d'ustensiles en bambou Winslow Pantry dans son emballage illustré de citrons"
     },
     "acacia-cutting-board": {
       "name": "Planche à découper en acacia",
@@ -143,7 +129,7 @@
       "included": ["Une planche à découper en acacia avec rigole à jus"],
       "features": ["Bois d'acacia 100 % naturel", "Rigole à jus", "Trou de suspension", "Logo Winslow Pantry gravé"],
       "care": "Lavage à la main uniquement. Ne la laissez pas tremper et ne la mettez pas au lave-vaisselle. Huilez-la de temps en temps pour garder un bois éclatant.",
-      "alt": "Planche à découper en acacia Winslow Pantry avec une étiquette à motif citron"
+      "alt": "Planche à découper en acacia Winslow Pantry avec une étiquette illustrée de citrons"
     },
     "silicone-utensil-rest": {
       "name": "Repose-cuillères en silicone",
@@ -153,7 +139,7 @@
       "included": ["Un repose-cuillères en silicone à quatre encoches"],
       "features": ["Sans BPA", "Évite les salissures", "Résiste à la chaleur jusqu'à 218 °C (425 °F)", "Passe au lave-vaisselle"],
       "care": "Passe au lave-vaisselle. Vous pouvez aussi le laver à la main à l'eau chaude savonneuse.",
-      "alt": "Repose-cuillères en silicone Winslow Pantry dans son emballage à motif myrtille"
+      "alt": "Repose-cuillères en silicone Winslow Pantry dans son emballage illustré de myrtilles"
     },
     "silicone-funnels": {
       "name": "Entonnoirs en silicone",
@@ -163,7 +149,7 @@
       "included": ["Petit entonnoir", "Entonnoir moyen", "Grand entonnoir"],
       "features": ["Trois tailles", "S'emboîtent pour le rangement", "Silicone souple"],
       "care": "Lavez à l'eau chaude savonneuse et laissez sécher avant de les emboîter.",
-      "alt": "Set de trois entonnoirs en silicone Winslow Pantry dans leur emballage à motif fraise"
+      "alt": "Set de trois entonnoirs en silicone Winslow Pantry dans leur emballage illustré de fraises"
     },
     "magnetic-bag-clips": {
       "name": "Pinces magnétiques pour sachets",
@@ -173,7 +159,7 @@
       "included": ["10 pinces magnétiques en 5 couleurs"],
       "features": ["Sans BPA", "Conception robuste", "Dos aimanté", "Usages multiples"],
       "care": "Nettoyez avec un chiffon humide.",
-      "alt": "Pinces magnétiques Winslow Pantry dans leur emballage à motif citron"
+      "alt": "Pinces magnétiques Winslow Pantry dans leur emballage illustré de citrons"
     }
   },
   "contact": {

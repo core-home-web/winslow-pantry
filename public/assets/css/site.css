@@ -249,26 +249,6 @@ a:hover { text-decoration-thickness: 2px; }
 .product-card:has(a:focus-visible) { outline: 3px solid var(--color-focus); outline-offset: 3px; }
 .product-card__more { margin-top: auto; display: inline-flex; align-items: center; font-weight: 700; font-size: var(--step--1); color: var(--color-link); text-decoration: underline; text-underline-offset: 0.2em; }
 
-.print-tag { display: inline-flex; align-items: center; gap: 0.5em; font-size: var(--step--1); font-weight: 600; color: var(--wp-ink) !important; }
-.print-tag__swatch { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--wp-ink); background: center / 60px auto; }
-.print-tag__swatch--lemon { background-image: url(/assets/img/patterns/lemon.webp); }
-.print-tag__swatch--blueberry { background-image: url(/assets/img/patterns/blueberry-stripe.webp); background-size: 90px auto; }
-.print-tag__swatch--strawberry { background: repeating-linear-gradient(90deg, var(--wp-rose) 0 5px, var(--wp-white) 5px 9px); }
-
-/* -------------------------------------------------------------- prints */
-.prints { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-5); }
-.print { text-align: center; }
-.print__tile {
-  position: relative; aspect-ratio: 1; border-radius: 50%; background-size: 160px auto; background-repeat: repeat;
-  border: 6px solid var(--wp-white); box-shadow: var(--shadow); margin-bottom: var(--space-4);
-}
-.print__spot { position: absolute; width: 52%; right: -10%; bottom: -8%; filter: drop-shadow(0 6px 8px rgba(28, 37, 46, 0.25)); }
-.print__name { font-size: var(--step-1); margin-bottom: var(--space-1); }
-.print__note { font-size: var(--step--1); color: var(--color-text-soft); }
-.prints--compact .print__note { display: none; }
-@media (max-width: 860px) { .prints { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .prints { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-
 /* ----------------------------------------------------------- materials */
 .materials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
 .material { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-5); align-items: start; }
@@ -392,7 +372,6 @@ a:hover { text-decoration-thickness: 2px; }
 }
 @media (forced-colors: active) {
   .btn, .chip, .lang__toggle { border: 2px solid ButtonText; }
-  .print-tag__swatch { forced-color-adjust: none; }
 }
 @media print {
   .site-header, .site-footer, .jump, .plaid, .cta-band, .lang-banner { display: none; }

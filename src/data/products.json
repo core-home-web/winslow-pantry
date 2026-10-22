@@ -38,10 +38,11 @@
     }
   ],
   "prints": [
-    { "id": "lemon", "tile": "/assets/img/patterns/lemon.webp", "spot": "/assets/img/fruit/lemon.webp", "spotWidth": 251, "spotHeight": 161 },
-    { "id": "blueberry", "tile": "/assets/img/patterns/blueberry-stripe.webp", "spot": "/assets/img/fruit/blueberries.webp", "spotWidth": 289, "spotHeight": 274 },
-    { "id": "cherry", "tile": "/assets/img/patterns/cherry.webp", "spot": "/assets/img/fruit/cherries.webp", "spotWidth": 183, "spotHeight": 176 },
-    { "id": "orange", "tile": "/assets/img/patterns/orange.webp", "spot": "/assets/img/fruit/orange.webp", "spotWidth": 221, "spotHeight": 176 },
-    { "id": "lime", "tile": "/assets/img/patterns/lime.webp", "spot": "/assets/img/fruit/lime.webp", "spotWidth": 234, "spotHeight": 160 }
+    { "id": "lemon", "name": "Lemon", "note": "Bright as a July morning", "tile": "/assets/img/patterns/lemon.webp", "spot": "/assets/img/fruit/lemon.webp", "spotWidth": 251, "spotHeight": 161 },
+    { "id": "blueberry", "name": "Blueberry", "note": "Cool, sweet and a little wild", "tile": "/assets/img/patterns/blueberry-stripe.webp", "spot": "/assets/img/fruit/blueberries.webp", "spotWidth": 289, "spotHeight": 274 },
+    { "id": "cherry", "name": "Cherry", "note": "The first sign of summer", "tile": "/assets/img/patterns/cherry.webp", "spot": "/assets/img/fruit/cherries.webp", "spotWidth": 183, "spotHeight": 176 },
+    { "id": "orange", "name": "Orange", "note": "Sunshine you can hold", "tile": "/assets/img/patterns/orange.webp", "spot": "/assets/img/fruit/orange.webp", "spotWidth": 221, "spotHeight": 176 },
+    { "id": "lime", "name": "Lime", "note": "Crisp and full of zest", "tile": "/assets/img/patterns/lime.webp", "spot": "/assets/img/fruit/lime.webp", "spotWidth": 234, "spotHeight": 160 },
+    { "id": "strawberry", "name": "Strawberry", "note": "Sweet and just picked", "stripe": true }
   ]
 }
