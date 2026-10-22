@@ -188,7 +188,13 @@
       onToggle: (self) => {
         if (self.isActive) chip.setAttribute("aria-current", "true");
         else chip.removeAttribute("aria-current");
-        if (self.isActive) chip.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+        // Scroll only the chip row: scrollIntoView would also move the page and
+        // cut short a jump to another product.
+        if (self.isActive) {
+          const list = chip.closest(".jump__list");
+          const offset = chip.getBoundingClientRect().left - list.getBoundingClientRect().left;
+          list.scrollTo({ left: list.scrollLeft + offset - (list.clientWidth - chip.offsetWidth) / 2, behavior: "smooth" });
+        }
       },
     });
   });
