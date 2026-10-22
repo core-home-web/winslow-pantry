@@ -43,8 +43,9 @@
     "suggest": "Esta página también está disponible en español.",
     "suggestLink": "Ver en español",
     "suggestDismiss": "No, gracias",
-    "lineupTag": "Vista previa",
+    "lineupShowing": "Productos visibles:",
     "lineupLabel": "Todos los productos",
+    "lineupLaunchLabel": "Pinzas",
     "seeDetails": "Ver detalles"
   },
   "home": {

@@ -22,24 +22,27 @@
     });
   }
 
-  /* Preview switch: the full collection or the launch product only */
-  const lineup = document.querySelector(".lineup-switch");
+  /* Preview toggle: the full collection or the launch product only.
+     The choice is saved, so it holds on every page, language and open tab. */
+  const lineup = document.querySelector(".lineup-toggle");
   if (lineup) {
     const root = document.documentElement;
     const apply = (mode) => {
       root.setAttribute("data-lineup", mode);
-      lineup.setAttribute("aria-checked", String(mode === "all"));
       document.querySelectorAll("[data-label-all]").forEach((el) =>
         el.setAttribute("aria-label", mode === "all" ? el.dataset.labelAll : el.dataset.labelLaunch)
       );
     };
+    // Shown or hidden sections move the page, so scroll animations re-measure.
+    const switchTo = (mode) => { apply(mode); if (window.ScrollTrigger) window.ScrollTrigger.refresh(); };
     apply(root.getAttribute("data-lineup") === "launch" ? "launch" : "all");
     lineup.addEventListener("click", () => {
       const mode = root.getAttribute("data-lineup") === "all" ? "launch" : "all";
       store.set("wp-lineup", mode);
-      apply(mode);
-      // Shown or hidden sections move the page, so scroll animations re-measure.
-      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      switchTo(mode);
+    });
+    window.addEventListener("storage", (e) => {
+      if (e.key === "wp-lineup" && (e.newValue === "all" || e.newValue === "launch")) switchTo(e.newValue);
     });
   }
 
