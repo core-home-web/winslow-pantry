@@ -475,7 +475,8 @@ function contact(L) {
           ${Object.entries(cards)
             .map(([k, ic]) => {
               // The Worker redirects /email to the inbox, so the address never appears in the page.
-              const href = `/email?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
+              // Subject reads "Winslow Pantry | Wholesale inquiry" so the inbox can sort by brand and topic.
+              const href = `/email?subject=${encodeURIComponent(`${site.name} | ${C(`cards.${k}.subject`)}`)}`;
               return `<li class="contact-card">
             ${icon(ic, "contact-card__icon")}
             <h2 class="h3">${esc(C(`cards.${k}.title`))}</h2>
