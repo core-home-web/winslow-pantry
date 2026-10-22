@@ -469,6 +469,8 @@ function collection(L) {
 function contact(L) {
   const C = (k) => t(L, `contact.${k}`);
   const email = site.contactEmail;
+  // The topic buttons go to the inquiry inbox; the direct line shows the public address.
+  const inquiry = site.inquiryEmail || email;
   const cards = { wholesale: "store", care: "spoon", press: "mail" };
   return `    ${pageHero(L, "contact", { art: `<img class="hero__spot" src="/assets/img/fruit/blueberry-sprig.webp" width="185" height="176" alt="">` })}
 
@@ -477,7 +479,7 @@ function contact(L) {
         <ul class="contact-cards" role="list">
           ${Object.entries(cards)
             .map(([k, ic]) => {
-              const href = `mailto:${email}?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
+              const href = `mailto:${inquiry}?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
               return `<li class="contact-card">
             ${icon(ic, "contact-card__icon")}
             <h2 class="h3">${esc(C(`cards.${k}.title`))}</h2>

@@ -16,7 +16,7 @@ Brochure website for **Winslow Pantry**, built from the *Winslow Pantry Brand Gu
 ## How it's built
 
 - `src/i18n/<lang>.json` holds every word of public copy. The templates contain no text of their own.
-- `src/site.json` holds the site URL, contact email and the list of published languages.
+- `src/site.json` holds the site URL, the public contact email (`contactEmail`, shown in the footer and on the Contact page), the inbox the Contact page topic buttons send to (`inquiryEmail`) and the list of published languages.
 - `src/data/products.json` holds product images and feature icons (the words are in the i18n files), plus the print names and the print for each product. Prints are internal: they appear only in the style guide, never in public copy.
 - `scripts/build.mjs` renders every page in every language into `public/`, along with `sitemap.xml`, `robots.txt`, the web manifest and translated 404 pages. Run `npm run build` after any change. The generated HTML is committed, and `wrangler deploy` also runs the build first.
 - `scripts/styleguide.mjs` renders the internal style guide.
