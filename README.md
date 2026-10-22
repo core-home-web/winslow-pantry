@@ -36,7 +36,7 @@ It also lists any keys a translation is missing; those fall back to English.
 
 Each page gets a unique title and meta description, a canonical URL, `hreflang` alternates for every language plus `x-default`, Open Graph and Twitter Card tags with a localized share image, and JSON-LD structured data (Organization, WebSite, page type and breadcrumbs). The sitemap lists every page with its language alternates.
 
-**Before launch:** set `"url"` in `src/site.json` to the real domain (it is used for canonical URLs, share images and the sitemap), set the `INQUIRY_EMAIL` secret (see below), then run `npm run build` and `npm run og`.
+The site's address is `"url"` in `src/site.json` (currently `https://winslowpantry.shop`). It is used for canonical URLs, share images and the sitemap. After changing it, run `npm run build` and `npm run og`, since the share images print the domain.
 
 ## Translation
 
@@ -66,6 +66,12 @@ The brand colors are used exactly as specified in the guide. Accessibility comes
 - Small link text uses "Harbor deep" (`#33607A`), a darker step of 7698 C, only where 7698 C would fall short of 4.5:1.
 - Visible focus outlines everywhere, and support for reduced motion, higher contrast and forced colors.
 - The style guide has a color vision preview (protanopia, deuteranopia, tritanopia, achromatopsia).
+
+## Product preview switch
+
+While the team decides what to launch with, the header has a **Preview / All products** switch. On, the site shows the full collection. Off, it shows only the products marked `"launch": true` in `src/data/products.json` (the magnetic bag clips), and hides the Materials section, the jump menu and FAQ entries marked `"lineup": "all"`. Headings that count products swap to their `...Launch` wording in the i18n files. The choice is remembered per browser.
+
+In `src/site.json`, `"lineup"` sets the default (`"all"` or `"launch"`) and `"lineupPreview"` shows the switch. To launch with one lineup, set `"lineup"` to it and `"lineupPreview"` to `false`, then rebuild.
 
 ## Contact email
 

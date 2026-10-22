@@ -25,6 +25,10 @@ function write(path, html) {
 // the page after 2.5s if the animation scripts never load.
 const MOTION_BOOT = `(function(r){try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");if(sessionStorage.getItem("wp-curtain")){sessionStorage.removeItem("wp-curtain");r.classList.add("curtain-in")}setTimeout(function(){r.classList.add("motion-ready");r.classList.remove("curtain-in")},2500)}catch(e){}})(document.documentElement)`;
 
+// Preview only (site.json "lineupPreview"): restores the visitor's choice of
+// all products or the launch product before first paint.
+const LINEUP_BOOT = `(function(r){try{var v=localStorage.getItem("wp-lineup");if(v==="all"||v==="launch")r.setAttribute("data-lineup",v)}catch(e){}})(document.documentElement)`;
+
 function head(L, key, { noindex = false, metaKey = key } = {}) {
   const title = t(L, `meta.${metaKey}.title`);
   const description = t(L, `meta.${metaKey}.description`);
@@ -69,7 +73,8 @@ function head(L, key, { noindex = false, metaKey = key } = {}) {
   <link rel="preload" href="/assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script>${MOTION_BOOT}</script>
+  <script>${MOTION_BOOT}</script>${site.lineupPreview ? `
+  <script>${LINEUP_BOOT}</script>` : ""}
   <script src="/assets/js/vendor/gsap.min.js" defer></script>
   <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/assets/js/motion.js" defer></script>
@@ -124,6 +129,15 @@ function langSwitch(L, key) {
         </details>`;
 }
 
+// Preview switch between the full collection and the launch product only.
+function lineupSwitch(L) {
+  return `<button class="lineup-switch" type="button" role="switch" aria-checked="${site.lineup === "all"}">
+          <span class="lineup-switch__tag">${esc(t(L, "global.lineupTag"))}</span>
+          <span class="lineup-switch__label">${esc(t(L, "global.lineupLabel"))}</span>
+          <span class="lineup-switch__track" aria-hidden="true"><span class="lineup-switch__thumb"></span></span>
+        </button>`;
+}
+
 function header(L, key) {
   const nav = PAGES.filter((p) => p.key !== "home");
   return `<header class="site-header">
@@ -141,6 +155,7 @@ function header(L, key) {
             ${nav.map((p) => `<li><a class="site-nav__link" href="${pageUrl(L, p.key)}"${p.key === key ? ' aria-current="page"' : ""}>${esc(t(L, `global.nav.${p.key}`))}</a></li>`).join("\n            ")}
           </ul>
         </nav>
+        ${site.lineupPreview ? lineupSwitch(L) : ""}
         ${langSwitch(L, key)}
       </div>
     </div>
@@ -192,7 +207,7 @@ function page(L, key, body, { noindex = false, bodyClass = "" } = {}) {
   const metaKey = key;
   const navKey = key === "notFound" ? "home" : key;
   return `<!doctype html>
-<html lang="${locales.find((l) => l.code === L).hreflang}" class="no-js">
+<html lang="${locales.find((l) => l.code === L).hreflang}" class="no-js" data-lineup="${site.lineup}">
 <head>
   ${head(L, navKey, { noindex, metaKey })}
   ${noindex ? "" : jsonLd(L, key)}
@@ -212,6 +227,10 @@ ${body}
 }
 
 /* ----------------------------------------------------------- components */
+// Content shown only with the full collection, or only with the launch product.
+const allOnly = (p) => (p && p.launch ? "" : ' data-show="all"');
+const byLineup = (all, launch) => `<span data-show="all">${esc(all)}</span><span data-show="launch">${esc(launch)}</span>`;
+
 const kicker = (text, cls = "") => `<p class="kicker ${cls}">${esc(text)}</p>`;
 const arrowLink = (href, text, cls = "") => `<a class="text-link ${cls}" href="${href}">${esc(text)}${icon("arrow", "icon--inline")}</a>`;
 
@@ -222,7 +241,7 @@ function featureList(L, p, cls = "") {
 
 function productCard(L, p) {
   const P = (k) => t(L, `products.${p.slug}.${k}`);
-  return `<li class="product-card">
+  return `<li class="product-card"${allOnly(p)}>
           <div class="product-card__media panel panel--${p.panel}">
             <img src="${p.image.src}" width="${p.image.width}" height="${p.image.height}" alt="${esc(P("alt"))}" loading="lazy">
           </div>
@@ -244,13 +263,13 @@ function valuesList(L) {
       </ul>`;
 }
 
-function pageHero(L, ns, { art = "" } = {}) {
+function pageHero(L, ns, { art = "", leadLaunch = "" } = {}) {
   return `<section class="hero hero--page" aria-labelledby="page-title">
       <div class="container hero__inner">
         <div class="hero__copy">
           ${kicker(t(L, `${ns}.heroKicker`), "kicker--on-blue")}
           <h1 class="display" id="page-title">${esc(t(L, `${ns}.heroTitle`))}</h1>
-          <p class="lead">${esc(t(L, `${ns}.heroLead`))}</p>
+          <p class="lead">${leadLaunch ? byLineup(t(L, `${ns}.heroLead`), leadLaunch) : esc(t(L, `${ns}.heroLead`))}</p>
         </div>
         ${art}
       </div>
@@ -258,13 +277,13 @@ function pageHero(L, ns, { art = "" } = {}) {
     </section>`;
 }
 
-function ctaBand(L, { title, text, button, href, spot = "/assets/img/fruit/lemon.webp", w = 251, h = 161 }) {
+function ctaBand(L, { title, text, textLaunch = "", button, href, spot = "/assets/img/fruit/lemon.webp", w = 251, h = 161 }) {
   return `<section class="cta-band" aria-labelledby="cta-title">
       <div class="container cta-band__inner">
         <img class="cta-band__spot" src="${spot}" width="${w}" height="${h}" alt="" loading="lazy">
         <div class="cta-band__copy">
           <h2 id="cta-title">${esc(title)}</h2>
-          <p>${esc(text)}</p>
+          <p>${textLaunch ? byLineup(text, textLaunch) : esc(text)}</p>
         </div>
         <a class="btn btn--light" href="${href}">${esc(button)}${icon("arrow", "btn__icon")}</a>
       </div>
@@ -290,10 +309,10 @@ function home(L) {
             <a class="btn btn--ghost" href="${pageUrl(L, "story")}">${esc(H("heroCta2"))}</a>
           </div>
         </div>
-        <div class="hero__art" role="img" aria-label="${esc(H("heroAlt"))}">
+        <div class="hero__art" role="img" aria-label="${esc(site.lineup === "all" ? H("heroAlt") : H("heroAltLaunch"))}" data-label-all="${esc(H("heroAlt"))}" data-label-launch="${esc(H("heroAltLaunch"))}">
           <img class="hero__pkg hero__pkg--a" src="/assets/img/products/bag-clips.webp" width="760" height="1190" alt="" fetchpriority="high">
-          <img class="hero__pkg hero__pkg--b" src="/assets/img/products/utensil-rest.webp" width="640" height="873" alt="">
-          <img class="hero__pkg hero__pkg--c" src="/assets/img/products/funnels.webp" width="640" height="1034" alt="">
+          <img class="hero__pkg hero__pkg--b" src="/assets/img/products/utensil-rest.webp" width="640" height="873" alt="" data-show="all">
+          <img class="hero__pkg hero__pkg--c" src="/assets/img/products/funnels.webp" width="640" height="1034" alt="" data-show="all">
           <img class="hero__fruit" src="/assets/img/fruit/blueberries.webp" width="289" height="274" alt="">
         </div>
       </div>
@@ -320,17 +339,17 @@ function home(L) {
       <div class="container">
         <div class="section-head">
           ${kicker(H("collectionKicker"))}
-          <h2 class="h2" id="collection-title">${esc(H("collectionTitle"))}</h2>
+          <h2 class="h2" id="collection-title">${byLineup(H("collectionTitle"), H("collectionTitleLaunch"))}</h2>
           <p class="lead">${esc(H("collectionLead"))}</p>
         </div>
         <ul class="product-grid" role="list">
         ${products.map((p) => productCard(L, p)).join("\n        ")}
         </ul>
-        <p class="section-foot"><a class="btn btn--ghost" href="${pageUrl(L, "collection")}">${esc(H("collectionCta"))}${icon("arrow", "btn__icon")}</a></p>
+        <p class="section-foot"><a class="btn btn--ghost" href="${pageUrl(L, "collection")}">${byLineup(H("collectionCta"), H("collectionCtaLaunch"))}${icon("arrow", "btn__icon")}</a></p>
       </div>
     </section>
 
-    <section class="section section--paper" aria-labelledby="materials-title">
+    <section class="section section--paper" aria-labelledby="materials-title" data-show="all">
       <div class="container">
         <div class="section-head">
           ${kicker(H("materialsKicker"))}
@@ -413,15 +432,15 @@ function story(L) {
       </div>
     </section>
 
-    ${ctaBand(L, { title: S("ctaTitle"), text: S("ctaText"), button: S("ctaButton"), href: pageUrl(L, "collection"), spot: "/assets/img/fruit/orange.webp", w: 221, h: 176 })}
+    ${ctaBand(L, { title: S("ctaTitle"), text: S("ctaText"), textLaunch: S("ctaTextLaunch"), button: S("ctaButton"), href: pageUrl(L, "collection"), spot: "/assets/img/fruit/orange.webp", w: 221, h: 176 })}
 `;
 }
 
 function collection(L) {
   const C = (k) => t(L, `collection.${k}`);
-  return `    ${pageHero(L, "collection", { art: `<img class="hero__spot" src="/assets/img/fruit/lemon.webp" width="251" height="161" alt="">` })}
+  return `    ${pageHero(L, "collection", { art: `<img class="hero__spot" src="/assets/img/fruit/lemon.webp" width="251" height="161" alt="">`, leadLaunch: C("heroLeadLaunch") })}
 
-    <nav class="jump" aria-label="${esc(C("jump"))}">
+    <nav class="jump" aria-label="${esc(C("jump"))}" data-show="all">
       <div class="container">
         <ul class="jump__list" role="list">
           ${products.map((p) => `<li><a class="chip" href="#${p.slug}">${esc(t(L, `products.${p.slug}.name`))}</a></li>`).join("\n          ")}
@@ -432,7 +451,7 @@ function collection(L) {
     ${products
       .map((p, i) => {
         const P = (k) => t(L, `products.${p.slug}.${k}`);
-        return `<section class="product section${i % 2 ? " section--paper" : ""}" id="${p.slug}" aria-labelledby="${p.slug}-title">
+        return `<section class="product section${i % 2 ? " section--paper" : ""}" id="${p.slug}" aria-labelledby="${p.slug}-title"${allOnly(p)}>
       <div class="container product__inner${i % 2 ? " product__inner--reverse" : ""}">
         <div class="product__media panel panel--${p.panel}">
           <img src="${p.image.src}" width="${p.image.width}" height="${p.image.height}" alt="${esc(P("alt"))}"${i ? ' loading="lazy"' : ""}>
@@ -494,7 +513,7 @@ function contact(L) {
         <h2 class="h2" id="faq-title">${esc(C("faqTitle"))}</h2>
         <div class="faq">
           ${tList(L, "contact.faq")
-            .map((f) => `<details class="faq__item"><summary>${esc(f.q)}${icon("chevron", "faq__chev")}</summary><p>${esc(f.a)}</p></details>`)
+            .map((f) => `<details class="faq__item"${f.lineup === "all" ? ' data-show="all"' : ""}><summary>${esc(f.q)}${icon("chevron", "faq__chev")}</summary><p>${esc(f.a)}</p></details>`)
             .join("\n          ")}
         </div>
       </div>

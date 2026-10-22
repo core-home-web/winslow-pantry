@@ -31,6 +31,7 @@
     },
     {
       "slug": "magnetic-bag-clips",
+      "launch": true,
       "image": { "src": "/assets/img/products/bag-clips.webp", "width": 760, "height": 1190 },
       "print": "lemon",
       "panel": "lemon",

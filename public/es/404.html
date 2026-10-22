@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" class="no-js">
+<html lang="es" class="no-js" data-lineup="all">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,11 @@
   <meta property="og:site_name" content="Winslow Pantry">
   <meta property="og:title" content="Página no encontrada | Winslow Pantry">
   <meta property="og:description" content="No encontramos esa página. Vuelve al inicio de Winslow Pantry o explora la colección.">
-  <meta property="og:url" content="https://winslowpantry.com/es/">
+  <meta property="og:url" content="https://winslowpantry.shop/es/">
   <meta property="og:locale" content="es_MX">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:image" content="https://winslowpantry.com/assets/og/es/home.jpg">
+  <meta property="og:image" content="https://winslowpantry.shop/assets/og/es/home.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Página no encontrada | Winslow Pantry">
   <meta name="twitter:description" content="No encontramos esa página. Vuelve al inicio de Winslow Pantry o explora la colección.">
-  <meta name="twitter:image" content="https://winslowpantry.com/assets/og/es/home.jpg">
+  <meta name="twitter:image" content="https://winslowpantry.shop/assets/og/es/home.jpg">
   <meta name="twitter:image:alt" content="El logotipo de Winslow Pantry junto a un puesto de mercado lleno de productos frescos">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>(function(r){try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");if(sessionStorage.getItem("wp-curtain")){sessionStorage.removeItem("wp-curtain");r.classList.add("curtain-in")}setTimeout(function(){r.classList.add("motion-ready");r.classList.remove("curtain-in")},2500)}catch(e){}})(document.documentElement)</script>
+  <script>(function(r){try{var v=localStorage.getItem("wp-lineup");if(v==="all"||v==="launch")r.setAttribute("data-lineup",v)}catch(e){}})(document.documentElement)</script>
   <script src="/assets/js/vendor/gsap.min.js" defer></script>
   <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/assets/js/motion.js" defer></script>
@@ -60,6 +61,11 @@
             <li><a class="site-nav__link" href="/es/contact/">Contacto</a></li>
           </ul>
         </nav>
+        <button class="lineup-switch" type="button" role="switch" aria-checked="true">
+          <span class="lineup-switch__tag">Vista previa</span>
+          <span class="lineup-switch__label">Todos los productos</span>
+          <span class="lineup-switch__track" aria-hidden="true"><span class="lineup-switch__thumb"></span></span>
+        </button>
         <details class="lang">
           <summary class="lang__toggle"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-globe"/></svg><span class="lang__current">Español</span><span class="visually-hidden">. Elige un idioma</span><svg class="icon lang__chev" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary>
           <ul class="lang__menu" role="list">

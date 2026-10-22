@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /styleguide/
 Disallow: /email
 
-Sitemap: https://winslowpantry.com/sitemap.xml
+Sitemap: https://winslowpantry.shop/sitemap.xml

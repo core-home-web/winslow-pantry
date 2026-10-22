@@ -27,7 +27,9 @@
   gsap.defaults({ ease: EASE.out, duration: DUR.base });
 
   const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  // Only rendered elements: anything hidden at load (for example by the product
+  // preview switch) is left static, since a hidden scroll trigger fires at once.
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)].filter((el) => el.getClientRects().length);
   // Ambient motion: one slow sway out and back, finished well within the
   // five seconds WCAG 2.2.2 allows for movement that has no pause control.
   const sway = (targets, vars) => gsap.to(targets, { ease: EASE.sway, yoyo: true, repeat: 1, ...vars });
@@ -128,8 +130,9 @@
   });
 
   // Product cards are laid out on the table one after another.
-  gsap.set(".product-card", { autoAlpha: 0 });
-  ScrollTrigger.batch(".product-card", {
+  const cards = $$(".product-card");
+  gsap.set(cards, { autoAlpha: 0 });
+  ScrollTrigger.batch(cards, {
     start: "top 88%",
     once: true,
     onEnter: (batch) => gsap.fromTo(batch, { y: 60, autoAlpha: 0, rotation: (i) => (i % 2 ? 1.5 : -1.5) }, { y: 0, autoAlpha: 1, rotation: 0, duration: 1, stagger: 0.1, ease: EASE.settle }),

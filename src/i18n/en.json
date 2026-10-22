@@ -43,6 +43,8 @@
     "suggest": "This page is also available in English.",
     "suggestLink": "View in English",
     "suggestDismiss": "No thanks",
+    "lineupTag": "Preview",
+    "lineupLabel": "All products",
     "seeDetails": "See details"
   },
   "home": {
@@ -52,6 +54,7 @@
     "heroCta": "Meet the collection",
     "heroCta2": "Read our story",
     "heroAlt": "Winslow Pantry packaging for the silicone utensil rest, the magnetic bag clips and the silicone funnels",
+    "heroAltLaunch": "Winslow Pantry magnetic bag clips in their packaging",
     "storyKicker": "Our story",
     "storyTitle": "Inspired by the local farmer's market",
     "storyP1": "You know the feeling. Crates of sweet corn, jars of honey glowing in the sun, a gingham cloth on a folding table and someone happy to tell you which peaches are ready today.",
@@ -60,8 +63,10 @@
     "storyAlt": "A farm stand at the edge of a field, with crates of tomatoes, peppers and squash and jars of honey on a gingham covered table",
     "collectionKicker": "The collection",
     "collectionTitle": "Five kitchen helpers to start",
+    "collectionTitleLaunch": "Our first kitchen helper",
     "collectionLead": "Each piece is built for daily use and made to look right at home on the counter.",
     "collectionCta": "Browse the full collection",
+    "collectionCtaLaunch": "Take a closer look",
     "materialsKicker": "Materials",
     "materialsTitle": "Honest materials, made to be used",
     "materials": {
@@ -96,12 +101,14 @@
     "s3Alt": "An acacia cutting board with the Winslow Pantry logo engraved in the corner",
     "ctaTitle": "See what we make",
     "ctaText": "Five pieces to start, each one ready for everyday cooking.",
+    "ctaTextLaunch": "Our first piece is here, with more on the way.",
     "ctaButton": "Meet the collection"
   },
   "collection": {
     "heroKicker": "the collection",
     "heroTitle": "Everyday tools with a little market charm",
     "heroLead": "Five pieces to start, each one made to be used often and loved for a long time.",
+    "heroLeadLaunch": "Our first piece is here, made to be used often and loved for a long time. More are on the way.",
     "jump": "Jump to a product",
     "included": "What's included",
     "features": "Features",
@@ -175,8 +182,8 @@
     "faqTitle": "Good to know",
     "faq": [
       { "q": "Where can I buy Winslow Pantry?", "a": "Winslow Pantry is on its way to stores. Send us a note and we will let you know where to find it near you." },
-      { "q": "Is the silicone utensil rest BPA free?", "a": "Yes. It is BPA free, heat resistant up to 425°F (218°C) and dishwasher safe." },
-      { "q": "How do I care for wood and bamboo?", "a": "Hand wash, dry right away and skip the dishwasher. A little food safe oil every few weeks keeps the wood smooth and looking its best." },
+      { "lineup": "all", "q": "Is the silicone utensil rest BPA free?", "a": "Yes. It is BPA free, heat resistant up to 425°F (218°C) and dishwasher safe." },
+      { "lineup": "all", "q": "How do I care for wood and bamboo?", "a": "Hand wash, dry right away and skip the dishwasher. A little food safe oil every few weeks keeps the wood smooth and looking its best." },
       { "q": "Can I read this site in another language?", "a": "Yes. Use the language menu at the top of any page to switch between English, Spanish and French." }
     ]
   },
