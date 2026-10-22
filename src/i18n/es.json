@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Winslow Pantry | Utensilios con el encanto del mercado",
-      "description": "Utensilios de cocina inspirados en el mercado de productores local: bambú, una tabla de acacia y piezas de silicona con alegres estampados de fruta."
+      "description": "Utensilios de cocina inspirados en el mercado de productores local: bambú, una tabla de acacia y piezas de silicona para cocinar todos los días."
     },
     "story": {
       "title": "Nuestra historia | Winslow Pantry",
@@ -23,7 +23,7 @@
     "ogAlt": {
       "home": "El logotipo de Winslow Pantry junto a un puesto de mercado lleno de productos frescos",
       "story": "Winslow Pantry: Todo empezó en el mercado",
-      "collection": "Utensilios de cocina Winslow Pantry en su empaque con estampado de fruta",
+      "collection": "Utensilios de cocina Winslow Pantry en su empaque",
       "contact": "Winslow Pantry: Nos encantaría saber de ti"
     }
   },
@@ -43,21 +43,12 @@
     "suggest": "Esta página también está disponible en español.",
     "suggestLink": "Ver en español",
     "suggestDismiss": "No, gracias",
-    "seeDetails": "Ver detalles",
-    "printLabel": "Estampado"
-  },
-  "prints": {
-    "lemon": { "name": "Limón amarillo", "note": "Luminoso como una mañana de julio" },
-    "blueberry": { "name": "Arándano", "note": "Fresco, dulce y un poco silvestre" },
-    "cherry": { "name": "Cereza", "note": "La primera señal del verano" },
-    "orange": { "name": "Naranja", "note": "Un poco de sol en la mano" },
-    "lime": { "name": "Lima", "note": "Fresca y llena de chispa" },
-    "strawberry": { "name": "Fresa", "note": "Dulce y recién cosechada" }
+    "seeDetails": "Ver detalles"
   },
   "home": {
     "heroKicker": "recién llegado del mercado",
     "heroTitle": "Encanto sencillo para el corazón del hogar",
-    "heroLead": "Winslow Pantry lleva a tu cocina el espíritu relajado de un sábado en el mercado de productores. Materiales nobles, estampados de fruta alegres y utensilios que se ganan su lugar junto a la estufa.",
+    "heroLead": "Winslow Pantry lleva a tu cocina el espíritu relajado de un sábado en el mercado de productores. Materiales nobles, color alegre y utensilios que se ganan su lugar junto a la estufa.",
     "heroCta": "Conoce la colección",
     "heroCta2": "Lee nuestra historia",
     "heroAlt": "Empaques de Winslow Pantry del reposacucharas de silicona, las pinzas magnéticas y los embudos de silicona",
@@ -69,11 +60,8 @@
     "storyAlt": "Un puesto de granja junto a un campo, con cajas de tomates, pimientos y calabacitas y frascos de miel sobre un mantel de cuadros",
     "collectionKicker": "La colección",
     "collectionTitle": "Cinco ayudantes de cocina para empezar",
-    "collectionLead": "Cada pieza está hecha para el uso diario y viste un estampado que te dará gusto ver sobre la encimera.",
+    "collectionLead": "Cada pieza está hecha para el uso diario y para lucir bien sobre la encimera.",
     "collectionCta": "Explora toda la colección",
-    "printsKicker": "Nuestros estampados",
-    "printsTitle": "Elegidos en la mesa del mercado",
-    "printsLead": "Nuestros empaques llevan fruta pintada en acuarela, tal como se ve en su mejor momento. Cada estampado tiene nombre, así que es fácil encontrar tu favorito.",
     "materialsKicker": "Materiales",
     "materialsTitle": "Materiales nobles, hechos para usarse",
     "materials": {
@@ -86,7 +74,7 @@
     "values": {
       "charm": { "name": "Encanto atemporal", "text": "Diseños que se sienten familiares desde el primer día y que seguirán luciendo bien dentro de muchos años." },
       "function": { "name": "Funcionalidad diaria", "text": "Cada utensilio tiene una tarea y la cumple bien. Sin trucos y sin cajones desordenados." },
-      "spirit": { "name": "Un espíritu fresco y acogedor", "text": "Color y estampados que hacen que una cena entre semana se sienta un poco más como un sábado." }
+      "spirit": { "name": "Un espíritu fresco y acogedor", "text": "Color y detalles alegres que hacen que una cena entre semana se sienta un poco más como un sábado." }
     },
     "partnerKicker": "Para tiendas",
     "partnerTitle": "Lleva Winslow Pantry a tus estantes",
@@ -105,8 +93,6 @@
     "s2Title": "Encanto atemporal, funcionalidad diaria",
     "s2P1": "Un buen utensilio de cocina debe verse precioso colgado junto a la estufa y aun así trabajar duro a las seis de la tarde de un martes. Elegimos bambú, acacia y silicona porque son duraderos, fáciles de cuidar y agradables al tacto.",
     "s2P2": "Luego añadimos los detalles que te sacan una sonrisa, como un limón en acuarela en el empaque o nuestro sello grabado en la esquina de una tabla para picar.",
-    "s3Title": "Hecho al ritmo de las temporadas",
-    "s3P1": "Nuestros estampados siguen el calendario del mercado. Limones y limas, cerezas y arándanos, naranjas apiladas en una caja de madera. Cada uno lleva un espíritu fresco y acogedor al corazón del hogar.",
     "s3Alt": "Una tabla para picar de acacia con el logotipo de Winslow Pantry grabado en la esquina",
     "ctaTitle": "Mira lo que hacemos",
     "ctaText": "Cinco piezas para empezar, cada una lista para la cocina de todos los días.",
@@ -133,7 +119,7 @@
       "included": ["Cuchara ranurada", "Cuchara", "Cuchara tenedor", "Espátula", "Espátula ranurada"],
       "features": ["Bambú natural", "Cuida tus sartenes", "Cinco formas esenciales"],
       "care": "Lava a mano con agua tibia y jabón y sécalo de inmediato. Aplica un poco de aceite apto para alimentos cuando la madera se vea reseca.",
-      "alt": "Juego de utensilios de bambú Winslow Pantry en su empaque con estampado de limón"
+      "alt": "Juego de utensilios de bambú Winslow Pantry en su empaque ilustrado con limones"
     },
     "acacia-cutting-board": {
       "name": "Tabla para picar de acacia",
@@ -143,7 +129,7 @@
       "included": ["Una tabla para picar de acacia con canal para jugos"],
       "features": ["Madera de acacia totalmente natural", "Canal para jugos", "Orificio para colgar", "Sello Winslow Pantry grabado"],
       "care": "Lavar solo a mano. No la dejes en remojo ni la metas al lavavajillas. Aplica aceite de vez en cuando para que la madera conserve su color.",
-      "alt": "Tabla para picar de acacia Winslow Pantry con etiqueta de estampado de limón"
+      "alt": "Tabla para picar de acacia Winslow Pantry con etiqueta ilustrada con limones"
     },
     "silicone-utensil-rest": {
       "name": "Reposacucharas de silicona",
@@ -153,7 +139,7 @@
       "included": ["Un reposacucharas de silicona con cuatro ranuras"],
       "features": ["Sin BPA", "Evita derrames", "Resiste el calor hasta 218 °C (425 °F)", "Apto para lavavajillas"],
       "care": "Apto para lavavajillas. También puedes lavarlo a mano con agua tibia y jabón.",
-      "alt": "Reposacucharas de silicona Winslow Pantry en su empaque con estampado de arándanos"
+      "alt": "Reposacucharas de silicona Winslow Pantry en su empaque ilustrado con arándanos"
     },
     "silicone-funnels": {
       "name": "Embudos de silicona",
@@ -163,7 +149,7 @@
       "included": ["Embudo chico", "Embudo mediano", "Embudo grande"],
       "features": ["Tres tamaños", "Se guardan uno dentro de otro", "Silicona flexible"],
       "care": "Lávalos con agua tibia y jabón y déjalos secar antes de guardarlos juntos.",
-      "alt": "Juego de tres embudos de silicona Winslow Pantry en su empaque con estampado de fresas"
+      "alt": "Juego de tres embudos de silicona Winslow Pantry en su empaque ilustrado con fresas"
     },
     "magnetic-bag-clips": {
       "name": "Pinzas magnéticas para bolsas",
@@ -173,7 +159,7 @@
       "included": ["10 pinzas magnéticas en 5 colores"],
       "features": ["Sin BPA", "Diseño resistente", "Reverso magnético", "Usos múltiples"],
       "care": "Límpialas con un paño húmedo.",
-      "alt": "Pinzas magnéticas Winslow Pantry en su empaque con estampado de limón"
+      "alt": "Pinzas magnéticas Winslow Pantry en su empaque ilustrado con limones"
     }
   },
   "contact": {

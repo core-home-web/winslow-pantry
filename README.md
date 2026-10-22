@@ -6,7 +6,7 @@ Brochure website for **Winslow Pantry**, built from the *Winslow Pantry Brand Gu
 
 | Path | Page |
 | --- | --- |
-| `/` | Home: brand story, the collection, fruit prints, materials and values |
+| `/` | Home: brand story, the collection, materials and values |
 | `/collection/` | Every product with features, what's included and care |
 | `/our-story/` | The brand story in long form |
 | `/contact/` | Wholesale, product and press contacts, plus FAQ |
@@ -17,7 +17,7 @@ Brochure website for **Winslow Pantry**, built from the *Winslow Pantry Brand Gu
 
 - `src/i18n/<lang>.json` holds every word of public copy. The templates contain no text of their own.
 - `src/site.json` holds the site URL, contact email and the list of published languages.
-- `src/data/products.json` holds product images, prints and feature icons (the words are in the i18n files).
+- `src/data/products.json` holds product images and feature icons (the words are in the i18n files), plus the print names and the print for each product. Prints are internal: they appear only in the style guide, never in public copy.
 - `scripts/build.mjs` renders every page in every language into `public/`, along with `sitemap.xml`, `robots.txt`, the web manifest and translated 404 pages. Run `npm run build` after any change. The generated HTML is committed, and `wrangler deploy` also runs the build first.
 - `scripts/styleguide.mjs` renders the internal style guide.
 - `scripts/og.mjs` renders the 1200 × 630 share images (one per page per language) into `public/assets/og/`.
@@ -52,7 +52,7 @@ Animations use [GSAP](https://gsap.com) 3.13 with ScrollTrigger, self hosted in 
 
 - a cornflower page curtain with the plaid edge and badge that rises on exit and lifts on arrival,
 - a hero intro (the script kicker writes in, the headline rises word by word, packages are set down and sway),
-- scroll reveals: cards laid out one by one, fruit prints rolling in, material swatches turning, a drifting plaid and gentle parallax on fruit,
+- scroll reveals: cards laid out one by one, material swatches turning, a drifting plaid and gentle parallax on fruit,
 - arch-window reveals and an "in view" marker on the Collection page, plus smooth FAQ and menu transitions.
 
 Motion follows the brand: unhurried, eased and settling. A tiny script in `<head>` turns it on only when the visitor has not asked for reduced motion, ambient sways come to rest within five seconds (WCAG 2.2.2), and the page stays fully visible without JavaScript. The style guide's Motion section lists the easing and timing tokens and has a replay demo.
@@ -62,7 +62,7 @@ Motion follows the brand: unhurried, eased and settling. A tiny script in `<head
 The brand colors are used exactly as specified in the guide. Accessibility comes from how they are paired, not from changing them:
 
 - Body text is always Ink (433 C) or white on Harbor (7698 C) and Ink. All public pages pass an automated WCAG 2.2 AA audit (axe).
-- Meaning never depends on color alone: prints and product colors are named in text, links are underlined, the current page is marked with an underline, and the style guide's contrast ratings use words and symbols.
+- Meaning never depends on color alone: product colors are named in text, links are underlined, the current page is marked with an underline, and the style guide's contrast ratings use words and symbols.
 - Small link text uses "Harbor deep" (`#33607A`), a darker step of 7698 C, only where 7698 C would fall short of 4.5:1.
 - Visible focus outlines everywhere, and support for reduced motion, higher contrast and forced colors.
 - The style guide has a color vision preview (protanopia, deuteranopia, tritanopia, achromatopsia).

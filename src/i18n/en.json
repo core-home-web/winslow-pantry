@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Winslow Pantry | Kitchen Tools with Farmer's Market Charm",
-      "description": "Kitchen tools inspired by the local farmer's market: bamboo utensils, an acacia cutting board and silicone helpers dressed in fresh fruit prints."
+      "description": "Kitchen tools inspired by the local farmer's market: bamboo utensils, an acacia cutting board and silicone helpers made for everyday cooking."
     },
     "story": {
       "title": "Our Story | Winslow Pantry",
@@ -23,7 +23,7 @@
     "ogAlt": {
       "home": "The Winslow Pantry logo beside a farm stand filled with fresh produce",
       "story": "Winslow Pantry: It started at the market",
-      "collection": "Winslow Pantry kitchen tools in their fruit print packaging",
+      "collection": "Winslow Pantry kitchen tools in their packaging",
       "contact": "Winslow Pantry: We would love to hear from you"
     }
   },
@@ -43,21 +43,12 @@
     "suggest": "This page is also available in English.",
     "suggestLink": "View in English",
     "suggestDismiss": "No thanks",
-    "seeDetails": "See details",
-    "printLabel": "Print"
-  },
-  "prints": {
-    "lemon": { "name": "Lemon", "note": "Bright as a July morning" },
-    "blueberry": { "name": "Blueberry", "note": "Cool, sweet and a little wild" },
-    "cherry": { "name": "Cherry", "note": "The first sign of summer" },
-    "orange": { "name": "Orange", "note": "Sunshine you can hold" },
-    "lime": { "name": "Lime", "note": "Crisp and full of zest" },
-    "strawberry": { "name": "Strawberry", "note": "Sweet and just picked" }
+    "seeDetails": "See details"
   },
   "home": {
     "heroKicker": "fresh from the market",
     "heroTitle": "Simple charm for the heart of the home",
-    "heroLead": "Winslow Pantry brings the easy spirit of a Saturday farmer's market into your kitchen. Honest materials, cheerful fruit prints and tools that earn their spot by the stove.",
+    "heroLead": "Winslow Pantry brings the easy spirit of a Saturday farmer's market into your kitchen. Honest materials, cheerful color and tools that earn their spot by the stove.",
     "heroCta": "Meet the collection",
     "heroCta2": "Read our story",
     "heroAlt": "Winslow Pantry packaging for the silicone utensil rest, the magnetic bag clips and the silicone funnels",
@@ -69,11 +60,8 @@
     "storyAlt": "A farm stand at the edge of a field, with crates of tomatoes, peppers and squash and jars of honey on a gingham covered table",
     "collectionKicker": "The collection",
     "collectionTitle": "Five kitchen helpers to start",
-    "collectionLead": "Each piece is built for daily use and dressed in a print you will be glad to see on the counter.",
+    "collectionLead": "Each piece is built for daily use and made to look right at home on the counter.",
     "collectionCta": "Browse the full collection",
-    "printsKicker": "Our prints",
-    "printsTitle": "Picked from the market table",
-    "printsLead": "Our packaging wears watercolor fruit, painted the way it looks at its very best. Every print has a name, so the one you love is easy to find.",
     "materialsKicker": "Materials",
     "materialsTitle": "Honest materials, made to be used",
     "materials": {
@@ -86,7 +74,7 @@
     "values": {
       "charm": { "name": "Timeless charm", "text": "Designs that feel familiar the day they arrive and still look right years from now." },
       "function": { "name": "Everyday function", "text": "Every tool has a job, and it does that job well. No gimmicks and no drawer clutter." },
-      "spirit": { "name": "A fresh, inviting spirit", "text": "Color and pattern that make a weeknight dinner feel a little more like a Saturday." }
+      "spirit": { "name": "A fresh, inviting spirit", "text": "Color and cheerful details that make a weeknight dinner feel a little more like a Saturday." }
     },
     "partnerKicker": "For retailers",
     "partnerTitle": "Bring Winslow Pantry to your shelves",
@@ -105,8 +93,6 @@
     "s2Title": "Timeless charm, everyday function",
     "s2P1": "A good kitchen tool should look lovely hanging by the stove and still work hard at six o'clock on a Tuesday. We choose bamboo, acacia and silicone because they are durable, easy to care for and pleasant to hold.",
     "s2P2": "Then we add the details that make you smile, like a watercolor lemon on the package or our mark engraved in the corner of a cutting board.",
-    "s3Title": "Made with the seasons",
-    "s3P1": "Our prints follow the market calendar. Lemons and limes, cherries and blueberries, oranges piled high in a wooden crate. Each one brings a fresh, inviting spirit to the heart of the home.",
     "s3Alt": "An acacia cutting board with the Winslow Pantry logo engraved in the corner",
     "ctaTitle": "See what we make",
     "ctaText": "Five pieces to start, each one ready for everyday cooking.",
@@ -133,7 +119,7 @@
       "included": ["Slotted spoon", "Spoon", "Spork", "Turner", "Slotted turner"],
       "features": ["Natural bamboo", "Gentle on cookware", "Five everyday shapes"],
       "care": "Hand wash in warm, soapy water and dry right away. Rub with a little food safe oil when the wood looks thirsty.",
-      "alt": "Winslow Pantry bamboo utensil set in its lemon print packaging"
+      "alt": "Winslow Pantry bamboo utensil set in its packaging illustrated with lemons"
     },
     "acacia-cutting-board": {
       "name": "Acacia Cutting Board",
@@ -143,7 +129,7 @@
       "included": ["One acacia cutting board with juice well"],
       "features": ["All natural acacia wood", "Juice well", "Hanging hole", "Engraved Winslow Pantry mark"],
       "care": "Hand wash only. Do not soak it or put it in the dishwasher. Oil now and then to keep the wood looking rich.",
-      "alt": "Winslow Pantry acacia cutting board with a lemon print label"
+      "alt": "Winslow Pantry acacia cutting board with a label illustrated with lemons"
     },
     "silicone-utensil-rest": {
       "name": "Silicone Utensil Rest",
@@ -153,7 +139,7 @@
       "included": ["One silicone utensil rest with four slots"],
       "features": ["BPA free", "Prevents messes", "Heat resistant up to 425°F (218°C)", "Dishwasher safe"],
       "care": "Dishwasher safe. You can also wash it by hand in warm, soapy water.",
-      "alt": "Winslow Pantry silicone utensil rest in its blueberry print packaging"
+      "alt": "Winslow Pantry silicone utensil rest in its packaging illustrated with blueberries"
     },
     "silicone-funnels": {
       "name": "Silicone Funnels",
@@ -163,7 +149,7 @@
       "included": ["Small funnel", "Medium funnel", "Large funnel"],
       "features": ["Three sizes", "Nest for storage", "Flexible silicone"],
       "care": "Wash in warm, soapy water and let them dry before nesting.",
-      "alt": "Winslow Pantry set of three silicone funnels in strawberry print packaging"
+      "alt": "Winslow Pantry set of three silicone funnels in packaging illustrated with strawberries"
     },
     "magnetic-bag-clips": {
       "name": "Magnetic Bag Clips",
@@ -173,7 +159,7 @@
       "included": ["10 magnetic clips in 5 colors"],
       "features": ["BPA free", "Durable design", "Magnetic back", "Multi-use"],
       "care": "Wipe clean with a damp cloth.",
-      "alt": "Winslow Pantry magnetic bag clips in their lemon print packaging"
+      "alt": "Winslow Pantry magnetic bag clips in their packaging illustrated with lemons"
     }
   },
   "contact": {

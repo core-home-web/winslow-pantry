@@ -70,6 +70,7 @@ const NAV = [
   ["access", "Accessibility"],
   ["type", "Typography"],
   ["elements", "Design elements"],
+  ["prints", "Prints"],
   ["packaging", "Packaging"],
   ["components", "Components"],
   ["motion", "Motion"],
@@ -217,11 +218,11 @@ export function styleguide() {
 
       <h3 class="h3">Rules the site follows</h3>
       <ul class="sg-rules" role="list">
-        <li>${icon("check")}<span><strong>Never use color alone to carry meaning.</strong> Prints, finishes and product colors are always named in text ("Print: Lemon", "oat, wheat, lake blue, navy and stone").</span></li>
+        <li>${icon("check")}<span><strong>Never use color alone to carry meaning.</strong> Finishes and product colors are always named in text ("oat, wheat, lake blue, navy and stone").</span></li>
         <li>${icon("check")}<span><strong>Links are underlined</strong> in running text, and the current page in the menu is marked with a heavy underline and a light pill, not only a color change.</span></li>
         <li>${icon("check")}<span><strong>Body text is always Ink</strong> (or white on Harbor and Ink). Pastel brand colors are backgrounds, never text.</span></li>
         <li>${icon("check")}<span><strong>Harbor carries buttons</strong> with white text (5.2:1). For small link text on cream we use Harbor deep, a darker step of the same hue.</span></li>
-        <li>${icon("check")}<span><strong>Avoid red and green side by side</strong> to tell things apart. The cherry and lime prints are always labeled.</span></li>
+        <li>${icon("check")}<span><strong>Avoid red and green side by side</strong> to tell things apart. In internal materials the cherry and lime prints are always labeled.</span></li>
         <li>${icon("check")}<span><strong>Focus is always visible</strong>: a 3px Ink outline with a white halo (reversed on dark sections).</span></li>
         <li>${icon("check")}<span><strong>Respect user settings</strong>: reduced motion turns off transitions, higher contrast removes soft tints, and forced colors keep button outlines.</span></li>
       </ul>`,
@@ -258,7 +259,7 @@ export function styleguide() {
         <p class="h3">Heading 3: Bamboo Utensil Set</p>
         <p class="h4">Label: What's included</p>
         <p class="lead">Lead: Winslow Pantry brings the easy spirit of a Saturday farmer's market into your kitchen.</p>
-        <p>Body: Honest materials, cheerful fruit prints and tools that earn their spot by the stove. Body text is 16 to 17px with a 1.65 line height and a maximum line length of about 65 characters.</p>
+        <p>Body: Honest materials, cheerful color and tools that earn their spot by the stove. Body text is 16 to 17px with a 1.65 line height and a maximum line length of about 65 characters.</p>
       </div>`
     )}
 
@@ -271,17 +272,60 @@ export function styleguide() {
         <figure class="sg-pattern"><div class="gingham" style="height:160px"></div><figcaption>Gingham. Footer edge and small accents.</figcaption></figure>
         <figure class="sg-pattern"><div style="height:160px;background:url(/assets/img/brand/stripes.svg) 0 0 / 40px 40px"></div><figcaption>Stripes. Packaging borders.</figcaption></figure>
       </div>
-      <h3 class="h3">Fruit illustrations and prints</h3>
-      <p>Watercolor fruit with soft edges and leaves, always on white or watercolor paper. Each fruit has a matching all-over print.</p>
-      <ul class="sg-fruit" role="list">
+      <h3 class="h3">Fruit illustrations</h3>
+      <p>Watercolor fruit with soft edges and leaves, always on white or watercolor paper. On the public site single fruits appear only as decoration, never named or labeled. Each fruit also has a matching all-over print, documented in <a href="#prints">Prints</a>.</p>
+      <h3 class="h3">Paper texture</h3>
+      <div class="sg-paper"><p>Textured watercolor paper sits behind cards and content sections, tinted with Paper so text stays crisp.</p></div>`
+    )}
+
+    ${section(
+      "prints",
+      "Prints",
+      `<div class="sg-note">${icon("info")}<p><strong>Internal only.</strong> Print names, notes and the print tag are for the team, line sheets and retail partners. The public site shows the prints on packaging photos and product panels, but never names them or gives them their own section.</p></div>
+      <h3 class="h3">The prints</h3>
+      <p>Each print pairs a watercolor fruit with an all-over pattern. The name and note are the house wording for internal materials.</p>
+      <ul class="prints" role="list">
         ${prints
           .map(
-            (p) => `<li><div class="sg-fruit__tile" style="background-image:url(${p.tile})"></div><img src="${p.spot}" alt="" width="${p.spotWidth}" height="${p.spotHeight}" loading="lazy"><p>${esc(t("en", `prints.${p.id}.name`))}</p></li>`
+            (p) => `<li class="print">
+          <div class="print__tile${p.stripe ? ` print__tile--${p.id}` : ""}"${p.tile ? ` style="background-image:url(${p.tile})"` : ""}>
+            ${p.spot ? `<img class="print__spot" src="${p.spot}" width="${p.spotWidth}" height="${p.spotHeight}" alt="" loading="lazy">` : ""}
+          </div>
+          <h4 class="print__name">${esc(p.name)}</h4>
+          <p class="print__note">${esc(p.note)}</p>
+        </li>`
           )
           .join("\n        ")}
       </ul>
-      <h3 class="h3">Paper texture</h3>
-      <div class="sg-paper"><p>Textured watercolor paper sits behind cards and content sections, tinted with Paper so text stays crisp.</p></div>`
+      <h3 class="h3">Prints by product</h3>
+      <div class="sg-table-wrap">
+        <table class="sg-table">
+          <caption class="visually-hidden">Which print each product wears</caption>
+          <thead><tr><th scope="col">Product</th><th scope="col">Print</th><th scope="col">Tag</th></tr></thead>
+          <tbody>
+            ${products
+              .map((p) => {
+                const pr = prints.find((x) => x.id === p.print);
+                return `<tr><td>${esc(t("en", `products.${p.slug}.name`))}</td><td>${esc(pr.name)}</td><td><p class="print-tag"><span class="print-tag__swatch print-tag__swatch--${pr.id}" aria-hidden="true"></span>Print: ${esc(pr.name)}</p></td></tr>`;
+              })
+              .join("\n            ")}
+          </tbody>
+        </table>
+      </div>
+      <h3 class="h3">Print tag</h3>
+      <p>A round swatch with the print name in text, so the print never depends on color alone. Use it on line sheets, order forms and other internal or partner materials.</p>
+      <div class="sg-demo">
+        <p class="print-tag"><span class="print-tag__swatch print-tag__swatch--lemon" aria-hidden="true"></span>Print: Lemon</p>
+        <p class="print-tag"><span class="print-tag__swatch print-tag__swatch--blueberry" aria-hidden="true"></span>Print: Blueberry</p>
+        <p class="print-tag"><span class="print-tag__swatch print-tag__swatch--strawberry" aria-hidden="true"></span>Print: Strawberry</p>
+      </div>
+      <h3 class="h3">Rules</h3>
+      <ul class="sg-rules" role="list">
+        <li>${icon("check")}<span><strong>Keep prints off the public copy.</strong> No print names, print tags or "our prints" sections on the website. Let the packaging speak for itself.</span></li>
+        <li>${icon("check")}<span><strong>Always name a print in text</strong> wherever it is listed internally, and never tell prints apart by color alone.</span></li>
+        <li>${icon("check")}<span><strong>One print per package.</strong> Do not mix prints on the same product or panel.</span></li>
+      </ul>`,
+      "The all-over fruit patterns on our packaging. This is the reference for which print goes with which product."
     )}
 
     ${section(
@@ -311,10 +355,9 @@ export function styleguide() {
       <div class="sg-demo sg-demo--dark">
         <a class="btn btn--light" href="#components">Button on Harbor${icon("arrow", "btn__icon")}</a>
       </div>
-      <h3 class="h3">Script kicker and print tag</h3>
+      <h3 class="h3">Script kicker</h3>
       <div class="sg-demo">
         <p class="kicker">the collection</p>
-        <p class="print-tag"><span class="print-tag__swatch print-tag__swatch--lemon" aria-hidden="true"></span>Print: Lemon</p>
       </div>
       <h3 class="h3">Feature icons</h3>
       <p>Line icons on a 32px grid with a 2px stroke, drawn to match the packaging. Always paired with a text label.</p>
@@ -325,7 +368,7 @@ export function styleguide() {
       <ul class="product-grid sg-cards" role="list">
         ${(() => {
           const p = products[2];
-          return `<li class="product-card"><div class="product-card__media panel panel--${p.panel}"><img src="${p.image.src}" alt="" width="${p.image.width}" height="${p.image.height}" loading="lazy"></div><div class="product-card__body"><p class="product-card__set">${esc(t("en", `products.${p.slug}.set`))}</p><h4 class="product-card__name"><a href="${pageUrl("en", "collection")}#${p.slug}">${esc(t("en", `products.${p.slug}.name`))}</a></h4><p>${esc(t("en", `products.${p.slug}.short`))}</p><p class="print-tag"><span class="print-tag__swatch print-tag__swatch--blueberry" aria-hidden="true"></span>Print: Blueberry</p></div></li>`;
+          return `<li class="product-card"><div class="product-card__media panel panel--${p.panel}"><img src="${p.image.src}" alt="" width="${p.image.width}" height="${p.image.height}" loading="lazy"></div><div class="product-card__body"><p class="product-card__set">${esc(t("en", `products.${p.slug}.set`))}</p><h4 class="product-card__name"><a href="${pageUrl("en", "collection")}#${p.slug}">${esc(t("en", `products.${p.slug}.name`))}</a></h4><p>${esc(t("en", `products.${p.slug}.short`))}</p></div></li>`;
         })()}
       </ul>`
     )}
@@ -379,7 +422,7 @@ export function styleguide() {
       <ul class="sg-rules" role="list">
         <li>${icon("check")}<span><strong>Page curtain</strong>: the cornflower cover with the plaid edge and badge rises when you follow a link and lifts away on the next page.</span></li>
         <li>${icon("check")}<span><strong>Hero</strong>: the script kicker writes itself in, the headline rises word by word, the packages are set down and sway.</span></li>
-        <li>${icon("check")}<span><strong>Scroll</strong>: section headings and copy rise in, product cards are laid out one by one, fruit prints roll in, material swatches turn, the plaid drifts and fruit spots float with gentle parallax.</span></li>
+        <li>${icon("check")}<span><strong>Scroll</strong>: section headings and copy rise in, product cards are laid out one by one, material swatches turn, the plaid drifts and fruit spots float with gentle parallax.</span></li>
         <li>${icon("check")}<span><strong>Collection</strong>: each product panel opens like an arch window, and the jump menu marks the product in view.</span></li>
         <li>${icon("check")}<span><strong>Interface</strong>: FAQ answers open smoothly, and the mobile menu and language menu ease in.</span></li>
       </ul>
@@ -412,7 +455,7 @@ export function styleguide() {
       </div>
       <div class="sg-example">
         <p><span class="sg-tag sg-tag--fail">${icon("cross")}Avoid</span> Elevate your kitchen with curated tools that seamlessly blend form and function.</p>
-        <p><span class="sg-tag sg-tag--pass">${icon("check")}Write</span> Honest materials, cheerful fruit prints and tools that earn their spot by the stove.</p>
+        <p><span class="sg-tag sg-tag--pass">${icon("check")}Write</span> Honest materials, cheerful color and tools that earn their spot by the stove.</p>
       </div>`
     )}
 
