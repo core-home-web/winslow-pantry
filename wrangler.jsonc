@@ -14,5 +14,13 @@
     // The internal style guide goes through the Worker for auth, and /email
     // through the Worker so the inbox address never ships in a page.
     "run_worker_first": ["/styleguide", "/styleguide/*", "/email"]
+  },
+  // Matches the dashboard: keep request logs, including invocation logs.
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
   }
 }
