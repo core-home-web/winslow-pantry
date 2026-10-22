@@ -43,6 +43,8 @@
     "suggest": "Esta página también está disponible en español.",
     "suggestLink": "Ver en español",
     "suggestDismiss": "No, gracias",
+    "lineupTag": "Vista previa",
+    "lineupLabel": "Todos los productos",
     "seeDetails": "Ver detalles"
   },
   "home": {
@@ -52,6 +54,7 @@
     "heroCta": "Conoce la colección",
     "heroCta2": "Lee nuestra historia",
     "heroAlt": "Empaques de Winslow Pantry del reposacucharas de silicona, las pinzas magnéticas y los embudos de silicona",
+    "heroAltLaunch": "Pinzas magnéticas Winslow Pantry en su empaque",
     "storyKicker": "Nuestra historia",
     "storyTitle": "Inspirados en el mercado de productores local",
     "storyP1": "Seguro conoces esa sensación. Cajas de elotes dulces, frascos de miel que brillan al sol, un mantel de cuadros sobre una mesa plegable y alguien feliz de contarte qué duraznos están listos hoy.",
@@ -60,8 +63,10 @@
     "storyAlt": "Un puesto de granja junto a un campo, con cajas de tomates, pimientos y calabacitas y frascos de miel sobre un mantel de cuadros",
     "collectionKicker": "La colección",
     "collectionTitle": "Cinco ayudantes de cocina para empezar",
+    "collectionTitleLaunch": "Nuestro primer ayudante de cocina",
     "collectionLead": "Cada pieza está hecha para el uso diario y para lucir bien sobre la encimera.",
     "collectionCta": "Explora toda la colección",
+    "collectionCtaLaunch": "Verlas de cerca",
     "materialsKicker": "Materiales",
     "materialsTitle": "Materiales nobles, hechos para usarse",
     "materials": {
@@ -96,12 +101,14 @@
     "s3Alt": "Una tabla para picar de acacia con el logotipo de Winslow Pantry grabado en la esquina",
     "ctaTitle": "Mira lo que hacemos",
     "ctaText": "Cinco piezas para empezar, cada una lista para la cocina de todos los días.",
+    "ctaTextLaunch": "Nuestra primera pieza ya está aquí, y vienen más en camino.",
     "ctaButton": "Conoce la colección"
   },
   "collection": {
     "heroKicker": "la colección",
     "heroTitle": "Utensilios de diario con el encanto del mercado",
     "heroLead": "Cinco piezas para empezar, cada una hecha para usarse a menudo y quererse por mucho tiempo.",
+    "heroLeadLaunch": "Nuestra primera pieza ya está aquí, hecha para usarse a menudo y quererse por mucho tiempo. Vienen más en camino.",
     "jump": "Ir a un producto",
     "included": "Qué incluye",
     "features": "Características",
@@ -175,8 +182,8 @@
     "faqTitle": "Información útil",
     "faq": [
       { "q": "¿Dónde puedo comprar Winslow Pantry?", "a": "Winslow Pantry llegará pronto a las tiendas. Escríbenos y te diremos dónde encontrarlo cerca de ti." },
-      { "q": "¿El reposacucharas de silicona está libre de BPA?", "a": "Sí. No contiene BPA, resiste el calor hasta 218 °C (425 °F) y es apto para lavavajillas." },
-      { "q": "¿Cómo cuido la madera y el bambú?", "a": "Lava a mano, seca de inmediato y evita el lavavajillas. Un poco de aceite apto para alimentos cada pocas semanas mantiene la madera suave y en su mejor estado." },
+      { "lineup": "all", "q": "¿El reposacucharas de silicona está libre de BPA?", "a": "Sí. No contiene BPA, resiste el calor hasta 218 °C (425 °F) y es apto para lavavajillas." },
+      { "lineup": "all", "q": "¿Cómo cuido la madera y el bambú?", "a": "Lava a mano, seca de inmediato y evita el lavavajillas. Un poco de aceite apto para alimentos cada pocas semanas mantiene la madera suave y en su mejor estado." },
       { "q": "¿Puedo leer este sitio en otro idioma?", "a": "Sí. Usa el menú de idioma en la parte superior de cualquier página para cambiar entre inglés, español y francés." }
     ]
   },

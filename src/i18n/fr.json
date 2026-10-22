@@ -43,6 +43,8 @@
     "suggest": "Cette page est aussi disponible en français.",
     "suggestLink": "Voir en français",
     "suggestDismiss": "Non merci",
+    "lineupTag": "Aperçu",
+    "lineupLabel": "Tous les produits",
     "seeDetails": "Voir les détails"
   },
   "home": {
@@ -52,6 +54,7 @@
     "heroCta": "Découvrir la collection",
     "heroCta2": "Lire notre histoire",
     "heroAlt": "Emballages Winslow Pantry du repose-cuillères en silicone, des pinces magnétiques et des entonnoirs en silicone",
+    "heroAltLaunch": "Pinces magnétiques Winslow Pantry dans leur emballage",
     "storyKicker": "Notre histoire",
     "storyTitle": "Inspirés par le marché fermier",
     "storyP1": "Vous connaissez cette sensation. Des cagettes de maïs doux, des pots de miel qui brillent au soleil, une nappe vichy sur une table pliante et quelqu'un ravi de vous dire quelles pêches sont mûres aujourd'hui.",
@@ -60,8 +63,10 @@
     "storyAlt": "Un étal de ferme au bord d'un champ, avec des cagettes de tomates, de poivrons et de courges et des pots de miel sur une nappe vichy",
     "collectionKicker": "La collection",
     "collectionTitle": "Cinq alliés en cuisine pour commencer",
+    "collectionTitleLaunch": "Notre premier allié en cuisine",
     "collectionLead": "Chaque pièce est pensée pour servir tous les jours et faire bonne figure sur le plan de travail.",
     "collectionCta": "Voir toute la collection",
+    "collectionCtaLaunch": "Voir de plus près",
     "materialsKicker": "Matériaux",
     "materialsTitle": "Des matériaux sincères, faits pour servir",
     "materials": {
@@ -96,12 +101,14 @@
     "s3Alt": "Une planche à découper en acacia avec le logo Winslow Pantry gravé dans le coin",
     "ctaTitle": "Découvrez nos créations",
     "ctaText": "Cinq pièces pour commencer, chacune prête pour la cuisine de tous les jours.",
+    "ctaTextLaunch": "Notre première pièce est là, et d'autres suivront bientôt.",
     "ctaButton": "Découvrir la collection"
   },
   "collection": {
     "heroKicker": "la collection",
     "heroTitle": "Des ustensiles du quotidien au charme du marché",
     "heroLead": "Cinq pièces pour commencer, chacune faite pour servir souvent et durer longtemps.",
+    "heroLeadLaunch": "Notre première pièce est arrivée, pensée pour servir souvent et durer longtemps. D'autres suivront bientôt.",
     "jump": "Aller à un produit",
     "included": "Contenu",
     "features": "Caractéristiques",
@@ -175,8 +182,8 @@
     "faqTitle": "Bon à savoir",
     "faq": [
       { "q": "Où acheter Winslow Pantry ?", "a": "Winslow Pantry arrive bientôt en boutique. Écrivez-nous et nous vous dirons où le trouver près de chez vous." },
-      { "q": "Le repose-cuillères en silicone est-il sans BPA ?", "a": "Oui. Il est sans BPA, résiste à la chaleur jusqu'à 218 °C (425 °F) et passe au lave-vaisselle." },
-      { "q": "Comment entretenir le bois et le bambou ?", "a": "Lavez à la main, séchez aussitôt et évitez le lave-vaisselle. Un peu d'huile alimentaire toutes les quelques semaines garde le bois doux et beau." },
+      { "lineup": "all", "q": "Le repose-cuillères en silicone est-il sans BPA ?", "a": "Oui. Il est sans BPA, résiste à la chaleur jusqu'à 218 °C (425 °F) et passe au lave-vaisselle." },
+      { "lineup": "all", "q": "Comment entretenir le bois et le bambou ?", "a": "Lavez à la main, séchez aussitôt et évitez le lave-vaisselle. Un peu d'huile alimentaire toutes les quelques semaines garde le bois doux et beau." },
       { "q": "Puis-je lire ce site dans une autre langue ?", "a": "Oui. Utilisez le menu des langues en haut de chaque page pour passer de l'anglais à l'espagnol ou au français." }
     ]
   },

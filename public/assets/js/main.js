@@ -22,6 +22,27 @@
     });
   }
 
+  /* Preview switch: the full collection or the launch product only */
+  const lineup = document.querySelector(".lineup-switch");
+  if (lineup) {
+    const root = document.documentElement;
+    const apply = (mode) => {
+      root.setAttribute("data-lineup", mode);
+      lineup.setAttribute("aria-checked", String(mode === "all"));
+      document.querySelectorAll("[data-label-all]").forEach((el) =>
+        el.setAttribute("aria-label", mode === "all" ? el.dataset.labelAll : el.dataset.labelLaunch)
+      );
+    };
+    apply(root.getAttribute("data-lineup") === "launch" ? "launch" : "all");
+    lineup.addEventListener("click", () => {
+      const mode = root.getAttribute("data-lineup") === "all" ? "launch" : "all";
+      store.set("wp-lineup", mode);
+      apply(mode);
+      // Shown or hidden sections move the page, so scroll animations re-measure.
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    });
+  }
+
   /* Language menu: close on Escape or an outside click */
   document.querySelectorAll("details.lang").forEach((d) => {
     d.addEventListener("keydown", (e) => {

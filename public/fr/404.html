@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" class="no-js">
+<html lang="fr" class="no-js" data-lineup="all">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,11 @@
   <meta property="og:site_name" content="Winslow Pantry">
   <meta property="og:title" content="Page introuvable | Winslow Pantry">
   <meta property="og:description" content="Nous n'avons pas trouvé cette page. Retournez à l'accueil de Winslow Pantry ou parcourez la collection.">
-  <meta property="og:url" content="https://winslowpantry.com/fr/">
+  <meta property="og:url" content="https://winslowpantry.shop/fr/">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="es_MX">
-  <meta property="og:image" content="https://winslowpantry.com/assets/og/fr/home.jpg">
+  <meta property="og:image" content="https://winslowpantry.shop/assets/og/fr/home.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Page introuvable | Winslow Pantry">
   <meta name="twitter:description" content="Nous n'avons pas trouvé cette page. Retournez à l'accueil de Winslow Pantry ou parcourez la collection.">
-  <meta name="twitter:image" content="https://winslowpantry.com/assets/og/fr/home.jpg">
+  <meta name="twitter:image" content="https://winslowpantry.shop/assets/og/fr/home.jpg">
   <meta name="twitter:image:alt" content="Le logo Winslow Pantry à côté d'un étal de ferme rempli de produits frais">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>(function(r){try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");if(sessionStorage.getItem("wp-curtain")){sessionStorage.removeItem("wp-curtain");r.classList.add("curtain-in")}setTimeout(function(){r.classList.add("motion-ready");r.classList.remove("curtain-in")},2500)}catch(e){}})(document.documentElement)</script>
+  <script>(function(r){try{var v=localStorage.getItem("wp-lineup");if(v==="all"||v==="launch")r.setAttribute("data-lineup",v)}catch(e){}})(document.documentElement)</script>
   <script src="/assets/js/vendor/gsap.min.js" defer></script>
   <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/assets/js/motion.js" defer></script>
@@ -60,6 +61,11 @@
             <li><a class="site-nav__link" href="/fr/contact/">Contact</a></li>
           </ul>
         </nav>
+        <button class="lineup-switch" type="button" role="switch" aria-checked="true">
+          <span class="lineup-switch__tag">Aperçu</span>
+          <span class="lineup-switch__label">Tous les produits</span>
+          <span class="lineup-switch__track" aria-hidden="true"><span class="lineup-switch__thumb"></span></span>
+        </button>
         <details class="lang">
           <summary class="lang__toggle"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-globe"/></svg><span class="lang__current">Français</span><span class="visually-hidden">. Choisir une langue</span><svg class="icon lang__chev" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary>
           <ul class="lang__menu" role="list">
