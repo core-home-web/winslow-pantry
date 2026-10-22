@@ -171,7 +171,6 @@
       "care": { "title": "Preguntas sobre productos", "text": "¿Necesitas consejos de cuidado o tienes una pregunta sobre algo que compraste? Con gusto te ayudamos.", "button": "Escribir una pregunta", "subject": "Pregunta sobre un producto" },
       "press": { "title": "Prensa y colaboraciones", "text": "¿Preparas un artículo o una colaboración? Podemos compartir imágenes e información sobre la marca.", "button": "Escribir sobre prensa", "subject": "Consulta de prensa" }
     },
-    "direct": "O escríbenos directamente a",
     "opensEmail": "abre tu aplicación de correo",
     "faqTitle": "Información útil",
     "faq": [

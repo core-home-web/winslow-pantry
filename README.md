@@ -16,12 +16,12 @@ Brochure website for **Winslow Pantry**, built from the *Winslow Pantry Brand Gu
 ## How it's built
 
 - `src/i18n/<lang>.json` holds every word of public copy. The templates contain no text of their own.
-- `src/site.json` holds the site URL, the public contact email (`contactEmail`, shown in the footer and on the Contact page), the inbox the Contact page topic buttons send to (`inquiryEmail`) and the list of published languages.
+- `src/site.json` holds the site URL and the list of published languages.
 - `src/data/products.json` holds product images and feature icons (the words are in the i18n files), plus the print names and the print for each product. Prints are internal: they appear only in the style guide, never in public copy.
 - `scripts/build.mjs` renders every page in every language into `public/`, along with `sitemap.xml`, `robots.txt`, the web manifest and translated 404 pages. Run `npm run build` after any change. The generated HTML is committed, and `wrangler deploy` also runs the build first.
 - `scripts/styleguide.mjs` renders the internal style guide.
 - `scripts/og.mjs` renders the 1200 × 630 share images (one per page per language) into `public/assets/og/`.
-- `src/worker.js` serves the static files and puts Basic Auth in front of `/styleguide/`.
+- `src/worker.js` serves the static files, puts Basic Auth in front of `/styleguide/` and redirects `/email` to the inquiry inbox.
 
 ### Build checks
 
@@ -36,7 +36,7 @@ It also lists any keys a translation is missing; those fall back to English.
 
 Each page gets a unique title and meta description, a canonical URL, `hreflang` alternates for every language plus `x-default`, Open Graph and Twitter Card tags with a localized share image, and JSON-LD structured data (Organization, WebSite, page type and breadcrumbs). The sitemap lists every page with its language alternates.
 
-**Before launch:** set `"url"` in `src/site.json` to the real domain (it is used for canonical URLs, share images and the sitemap), confirm `"contactEmail"`, then run `npm run build` and `npm run og`.
+**Before launch:** set `"url"` in `src/site.json` to the real domain (it is used for canonical URLs, share images and the sitemap), set the `INQUIRY_EMAIL` secret (see below), then run `npm run build` and `npm run og`.
 
 ## Translation
 
@@ -67,6 +67,16 @@ The brand colors are used exactly as specified in the guide. Accessibility comes
 - Visible focus outlines everywhere, and support for reduced motion, higher contrast and forced colors.
 - The style guide has a color vision preview (protanopia, deuteranopia, tritanopia, achromatopsia).
 
+## Contact email
+
+No email address appears anywhere on the site or in this repository, so scrapers cannot harvest it. The Contact page buttons link to `/email?subject=...`, and the Worker answers with a redirect to `mailto:` using the address in the `INQUIRY_EMAIL` secret:
+
+```sh
+npx wrangler secret put INQUIRY_EMAIL
+```
+
+Until it is set, the buttons show a short "email is not available right now" message. `/email` is disallowed in `robots.txt`, marked `noindex` and linked with `rel="nofollow"`. Never put the address in `src/` or `public/`: this repository is public.
+
 ## Style guide access
 
 The style guide is for internal use only. It is left out of all navigation and the sitemap, marked `noindex`, disallowed in `robots.txt`, and gated by the Worker. To enable access, set a password on the Worker:
@@ -81,7 +91,7 @@ Until a password is set, `/styleguide/` returns a locked message.
 
 ```sh
 npm install
-echo 'STYLEGUIDE_PASSWORD="local"' > .dev.vars
+printf 'STYLEGUIDE_PASSWORD="local"\nINQUIRY_EMAIL="you@example.com"\n' > .dev.vars
 npm run dev      # builds, then serves at http://localhost:8787
 ```
 

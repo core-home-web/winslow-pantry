@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /styleguide/
+Disallow: /email
 
 Sitemap: https://winslowpantry.com/sitemap.xml

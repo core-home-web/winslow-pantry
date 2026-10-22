@@ -11,7 +11,8 @@
     // Serves the nearest 404.html, so /es/... and /fr/... get a translated page.
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash",
-    // The internal style guide always goes through the Worker for auth.
-    "run_worker_first": ["/styleguide", "/styleguide/*"]
+    // The internal style guide goes through the Worker for auth, and /email
+    // through the Worker so the inbox address never ships in a page.
+    "run_worker_first": ["/styleguide", "/styleguide/*", "/email"]
   }
 }

@@ -82,7 +82,7 @@ function jsonLd(L, key) {
   const graph = [];
   if (key === "home") {
     graph.push(
-      { "@type": "Organization", "@id": `${abs("/")}#org`, name, url: abs("/"), logo: abs("/assets/img/brand/logo-512.png"), email: site.contactEmail || undefined },
+      { "@type": "Organization", "@id": `${abs("/")}#org`, name, url: abs("/"), logo: abs("/assets/img/brand/logo-512.png") },
       { "@type": "WebSite", "@id": `${abs("/")}#site`, name, url: home, inLanguage: L, publisher: { "@id": `${abs("/")}#org` } }
     );
   }
@@ -148,7 +148,6 @@ function header(L, key) {
 }
 
 function footer(L, key) {
-  const email = site.contactEmail;
   return `<footer class="site-footer">
     <div class="gingham gingham--footer" aria-hidden="true"></div>
     <div class="container site-footer__grid">
@@ -165,7 +164,6 @@ function footer(L, key) {
       <div>
         <h2 class="site-footer__title">${esc(t(L, "global.footerHello"))}</h2>
         <ul role="list">
-          ${email ? `<li><a href="mailto:${email}">${icon("mail", "icon--inline icon--lead")}${esc(email)}</a></li>` : ""}
           <li><a href="${pageUrl(L, "contact")}">${esc(t(L, "global.nav.contact"))}</a></li>
         </ul>
       </div>
@@ -468,9 +466,6 @@ function collection(L) {
 
 function contact(L) {
   const C = (k) => t(L, `contact.${k}`);
-  const email = site.contactEmail;
-  // The topic buttons go to the inquiry inbox; the direct line shows the public address.
-  const inquiry = site.inquiryEmail || email;
   const cards = { wholesale: "store", care: "spoon", press: "mail" };
   return `    ${pageHero(L, "contact", { art: `<img class="hero__spot" src="/assets/img/fruit/blueberry-sprig.webp" width="185" height="176" alt="">` })}
 
@@ -479,17 +474,17 @@ function contact(L) {
         <ul class="contact-cards" role="list">
           ${Object.entries(cards)
             .map(([k, ic]) => {
-              const href = `mailto:${inquiry}?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
+              // The Worker redirects /email to the inbox, so the address never appears in the page.
+              const href = `/email?subject=${encodeURIComponent(C(`cards.${k}.subject`))}`;
               return `<li class="contact-card">
             ${icon(ic, "contact-card__icon")}
             <h2 class="h3">${esc(C(`cards.${k}.title`))}</h2>
             <p>${esc(C(`cards.${k}.text`))}</p>
-            <a class="btn" href="${href}">${icon("mail", "btn__icon btn__icon--lead")}${esc(C(`cards.${k}.button`))}<span class="visually-hidden"> (${esc(C("opensEmail"))})</span></a>
+            <a class="btn" href="${href}" rel="nofollow">${icon("mail", "btn__icon btn__icon--lead")}${esc(C(`cards.${k}.button`))}<span class="visually-hidden"> (${esc(C("opensEmail"))})</span></a>
           </li>`;
             })
             .join("\n          ")}
         </ul>
-        <p class="contact-direct">${esc(C("direct"))} <a href="mailto:${email}">${esc(email)}</a></p>
       </div>
     </section>
 
@@ -569,7 +564,7 @@ ${locales.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" h
 `
 );
 
-write("robots.txt", `User-agent: *\nDisallow: /styleguide/\n\nSitemap: ${abs("/sitemap.xml")}\n`);
+write("robots.txt", `User-agent: *\nDisallow: /styleguide/\nDisallow: /email\n\nSitemap: ${abs("/sitemap.xml")}\n`);
 
 write(
   "site.webmanifest",

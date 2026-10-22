@@ -1,8 +1,6 @@
 {
   "name": "Winslow Pantry",
   "url": "https://winslowpantry.com",
-  "contactEmail": "hello@winslowpantry.com",
-  "inquiryEmail": "sales@corehome.com",
   "themeColor": "#9BB4CB",
   "defaultLocale": "en",
   "locales": [
