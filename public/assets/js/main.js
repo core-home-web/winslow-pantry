@@ -7,6 +7,26 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch {} },
   };
 
+  /* Sticky header: publish its height for sticky offsets and anchor jumps, and
+     tighten it once the page scrolls. The gap between 80px and 10px keeps the
+     height change itself from flipping the state back. */
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const root = document.documentElement;
+    const setHeight = () => root.style.setProperty("--header-h", `${header.offsetHeight}px`);
+    if ("ResizeObserver" in window) new ResizeObserver(setHeight).observe(header);
+    setHeight();
+    let scrolled = false;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (scrolled ? y > 10 : y < 80) return;
+      scrolled = !scrolled;
+      header.classList.toggle("is-scrolled", scrolled);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* Mobile navigation toggle */
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("site-nav");
