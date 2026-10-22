@@ -2,7 +2,7 @@
 // English only, noindex, kept out of navigation and the sitemap, and served
 // behind HTTP Basic Auth by src/worker.js.
 
-import { site, products, prints, locales, PAGES, t, pageUrl, ogImage, esc } from "./lib.mjs";
+import { site, products, prints, locales, PAGES, t, pageUrl, ogImage, esc, asset } from "./lib.mjs";
 import { icon, sprite, ICONS } from "./icons.mjs";
 
 /* ------------------------------------------------------------- palette */
@@ -502,12 +502,12 @@ export function styleguide() {
   <meta name="description" content="Internal Winslow Pantry brand style guide.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/styleguide.css">
-  <script src="/assets/js/vendor/gsap.min.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
-  <script src="/assets/js/styleguide.js" defer></script>
+  <link rel="stylesheet" href="${asset("/assets/css/tokens.css")}">
+  <link rel="stylesheet" href="${asset("/assets/css/site.css")}">
+  <link rel="stylesheet" href="${asset("/assets/css/styleguide.css")}">
+  <script src="${asset("/assets/js/vendor/gsap.min.js")}" defer></script>
+  <script src="${asset("/assets/js/main.js")}" defer></script>
+  <script src="${asset("/assets/js/styleguide.js")}" defer></script>
 </head>
 <body class="sg">
   <a class="skip-link" href="#main">Skip to main content</a>
