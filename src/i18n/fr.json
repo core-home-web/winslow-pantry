@@ -171,7 +171,6 @@
       "care": { "title": "Questions sur les produits", "text": "Besoin de conseils d'entretien ou d'une réponse sur un achat ? Nous sommes là pour vous aider.", "button": "Poser une question", "subject": "Question sur un produit" },
       "press": { "title": "Presse et partenariats", "text": "Vous préparez un article ou une collaboration ? Nous pouvons partager des images et des informations sur la marque.", "button": "Écrire pour la presse", "subject": "Demande presse" }
     },
-    "direct": "Ou écrivez-nous directement à",
     "opensEmail": "ouvre votre messagerie",
     "faqTitle": "Bon à savoir",
     "faq": [

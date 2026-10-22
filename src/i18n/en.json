@@ -171,7 +171,6 @@
       "care": { "title": "Product questions", "text": "Need care tips or have a question about something you bought? We are happy to help.", "button": "Email a product question", "subject": "Product question" },
       "press": { "title": "Press and partnerships", "text": "Working on a story or a collaboration? We can share images and background on the brand.", "button": "Email about press", "subject": "Press inquiry" }
     },
-    "direct": "Or write to us directly at",
     "opensEmail": "opens your email app",
     "faqTitle": "Good to know",
     "faq": [

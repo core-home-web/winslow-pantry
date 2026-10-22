@@ -1,14 +1,18 @@
 // Winslow Pantry: Worker entry.
-// Serves the static site from /public and keeps the internal style guide
-// behind HTTP Basic Auth. Set the password with:
+// Serves the static site from /public, keeps the internal style guide
+// behind HTTP Basic Auth and redirects /email to the inquiry inbox.
+// Set the secrets with:
 //   npx wrangler secret put STYLEGUIDE_PASSWORD
+//   npx wrangler secret put INQUIRY_EMAIL
 // (optional) STYLEGUIDE_USER, defaults to "winslow".
 
 const PROTECTED = /^\/styleguide(\/|$)/;
+const EMAIL = /^\/email\/?$/;
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (EMAIL.test(url.pathname)) return emailRedirect(url, env);
     if (!PROTECTED.test(url.pathname)) return env.ASSETS.fetch(request);
 
     const password = env.STYLEGUIDE_PASSWORD;
@@ -37,6 +41,22 @@ export default {
     return new Response(res.body, { status: res.status, statusText: res.statusText, headers });
   },
 };
+
+// The Contact page buttons link here instead of to a mailto: address, so the
+// inbox stays out of the HTML (and this public repo) where scrapers look for it.
+function emailRedirect(url, env) {
+  const headers = { "cache-control": "no-store", "x-robots-tag": "noindex, nofollow" };
+  const address = env.INQUIRY_EMAIL;
+  if (!address) {
+    return new Response("Email is not available right now. Please try again later.", {
+      status: 503,
+      headers: { ...headers, "content-type": "text/plain; charset=utf-8" },
+    });
+  }
+  const subject = (url.searchParams.get("subject") || "").replace(/[\u0000-\u001f\u007f]/g, "").slice(0, 100);
+  const location = `mailto:${address}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+  return new Response(null, { status: 302, headers: { ...headers, location } });
+}
 
 async function authorized(request, user, password) {
   const header = request.headers.get("authorization") || "";

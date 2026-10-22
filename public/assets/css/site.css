@@ -313,7 +313,6 @@ a:hover { text-decoration-thickness: 2px; }
 .contact-card__icon { width: 46px; height: 46px; color: var(--wp-harbor); margin-bottom: var(--space-4); }
 .contact-card p { flex: 1; color: var(--color-text-soft); }
 .contact-card .btn { font-size: var(--step--1); }
-.contact-direct { margin-top: var(--space-6); text-align: center; font-size: var(--step-1); }
 @media (max-width: 860px) { .contact-cards { grid-template-columns: 1fr; } }
 
 .faq { display: grid; gap: var(--space-3); }
