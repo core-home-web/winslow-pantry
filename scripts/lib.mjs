@@ -2,6 +2,7 @@
 // used by build.mjs (pages) and og.mjs (Open Graph images).
 
 import { readFileSync, readdirSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -83,6 +84,12 @@ export const localeRoot = (code) => (code === DEFAULT ? "/" : `/${code}/`);
 export const pageUrl = (code, key) => localeRoot(code) + PAGES.find((p) => p.key === key).path;
 export const abs = (path) => site.url.replace(/\/$/, "") + path;
 export const ogImage = (code, key) => `/assets/og/${code}/${key}.jpg`;
+
+// Stylesheet and script URLs carry a hash of the file, so a changed file gets a
+// new URL and browsers never pair new pages with a week-old cached copy
+// (public/_headers caches /assets/* for 7 days).
+export const asset = (path) =>
+  `${path}?v=${createHash("sha256").update(readFileSync(join(root, "public", path))).digest("hex").slice(0, 10)}`;
 
 export const esc = (s = "") =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

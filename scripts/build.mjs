@@ -5,7 +5,7 @@
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { root, site, products, DEFAULT, PAGES, locales, missing, t, tList, localeRoot, pageUrl, abs, ogImage, esc } from "./lib.mjs";
+import { root, site, products, DEFAULT, asset, PAGES, locales, missing, t, tList, localeRoot, pageUrl, abs, ogImage, esc } from "./lib.mjs";
 import { icon, sprite } from "./icons.mjs";
 import { styleguide } from "./styleguide.mjs";
 
@@ -71,14 +71,14 @@ function head(L, key, { noindex = false, metaKey = key } = {}) {
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="${asset("/assets/css/tokens.css")}">
+  <link rel="stylesheet" href="${asset("/assets/css/site.css")}">
   <script>${MOTION_BOOT}</script>${site.lineupPreview ? `
   <script>${LINEUP_BOOT}</script>` : ""}
-  <script src="/assets/js/vendor/gsap.min.js" defer></script>
-  <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/assets/js/motion.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>`;
+  <script src="${asset("/assets/js/vendor/gsap.min.js")}" defer></script>
+  <script src="${asset("/assets/js/vendor/ScrollTrigger.min.js")}" defer></script>
+  <script src="${asset("/assets/js/motion.js")}" defer></script>
+  <script src="${asset("/assets/js/main.js")}" defer></script>`;
 }
 
 function jsonLd(L, key) {

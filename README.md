@@ -20,6 +20,7 @@ Brochure website for **Winslow Pantry**, built from the *Winslow Pantry Brand Gu
 - `src/data/products.json` holds product images and feature icons (the words are in the i18n files), plus the print names and the print for each product. Prints are internal: they appear only in the style guide, never in public copy.
 - `scripts/build.mjs` renders every page in every language into `public/`, along with `sitemap.xml`, `robots.txt`, the web manifest and translated 404 pages. Run `npm run build` after any change. The generated HTML is committed, and `wrangler deploy` also runs the build first.
 - `scripts/styleguide.mjs` renders the internal style guide.
+- Stylesheet and script links get a `?v=` hash of the file's contents at build time. `/assets/*` is cached for a week, so a changed file needs a new URL to reach visitors right away.
 - `scripts/og.mjs` renders the 1200 × 630 share images (one per page per language) into `public/assets/og/`.
 - `src/worker.js` serves the static files, puts Basic Auth in front of `/styleguide/` and redirects `/email` to the inquiry inbox.
 
