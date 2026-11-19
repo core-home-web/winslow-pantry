@@ -68,11 +68,27 @@ The brand colors are used exactly as specified in the guide. Accessibility comes
 - Visible focus outlines everywhere, and support for reduced motion, higher contrast and forced colors.
 - The style guide has a color vision preview (protanopia, deuteranopia, tritanopia, achromatopsia).
 
-## Product preview switch
+## Product lineup
 
-While the team decides what to launch with, the header has a toggle styled like the other nav items. Its label names what is showing, **All products** or **Bag clips**, and clicking it flips the whole site between the two. All products shows the full collection. Bag clips shows only the products marked `"launch": true` in `src/data/products.json` (the magnetic bag clips), and hides the Materials section, the jump menu and FAQ entries marked `"lineup": "all"`. Headings that count products swap to their `...Launch` wording in the i18n files. The choice is saved in the browser, so it holds on every page and language and updates other open tabs.
+`"lineup"` in `src/site.json` controls what visitors see:
 
-In `src/site.json`, `"lineup"` sets the default (`"all"` or `"launch"`) and `"lineupPreview"` shows the switch. To launch with one lineup, set `"lineup"` to it and `"lineupPreview"` to `false`, then rebuild.
+- `"launch"` — only products marked `"launch": true` in `src/data/products.json` (Magnetic Bag Clips today). Hides the Materials section, the collection jump menu and FAQ entries marked `"lineup": "all"`. Headings that count products use their `...Launch` wording.
+- `"all"` — the full collection.
+
+Production keeps `"lineupPreview": false` so there is no header toggle. For local design previews, set `"lineupPreview": true` and rebuild; the header then shows a switch between **All products** and **Bag clips**, and the choice is saved in the browser across pages, languages and tabs.
+
+### Release commands
+
+```sh
+npm run lineup:launch   # bag clips / launch-flagged products only, then build
+npm run lineup:all      # full collection, then build
+```
+
+Both set `"lineupPreview"` to `false`. Deploy after either command (`npm run deploy` or push to the branch Cloudflare Builds watches).
+
+**Ship one more product** on a release branch: add `"launch": true` to that product in `src/data/products.json`, then `npm run lineup:launch` (or `npm run build` if already on launch) and deploy.
+
+**Ship the full collection** on a release branch: `npm run lineup:all`, then deploy.
 
 ## Contact email
 

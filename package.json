@@ -7,6 +7,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "og": "node scripts/og.mjs",
+    "lineup:launch": "node scripts/lineup.mjs launch",
+    "lineup:all": "node scripts/lineup.mjs all",
     "dev": "node scripts/build.mjs && wrangler dev",
     "deploy": "node scripts/build.mjs && wrangler deploy"
   },

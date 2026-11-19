@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" class="no-js" data-lineup="all">
+<html lang="es" class="no-js" data-lineup="launch">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,6 @@
   <link rel="stylesheet" href="/assets/css/tokens.css?v=1f90671c6b">
   <link rel="stylesheet" href="/assets/css/site.css?v=e29040933a">
   <script>(function(r){try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");if(sessionStorage.getItem("wp-curtain")){sessionStorage.removeItem("wp-curtain");r.classList.add("curtain-in")}setTimeout(function(){r.classList.add("motion-ready");r.classList.remove("curtain-in")},2500)}catch(e){}})(document.documentElement)</script>
-  <script>(function(r){try{var v=localStorage.getItem("wp-lineup");if(v==="all"||v==="launch")r.setAttribute("data-lineup",v)}catch(e){}})(document.documentElement)</script>
   <script src="/assets/js/vendor/gsap.min.js?v=96c01b81f4" defer></script>
   <script src="/assets/js/vendor/ScrollTrigger.min.js?v=308219390e" defer></script>
   <script src="/assets/js/motion.js?v=3041292b6f" defer></script>
@@ -65,10 +64,7 @@
             <li><a class="site-nav__link" href="/es/contact/">Contacto</a></li>
           </ul>
         </nav>
-        <button class="site-nav__link lineup-toggle" type="button">
-          <span class="visually-hidden">Productos visibles: </span><span data-show="all">Todos los productos</span><span data-show="launch">Pinzas</span>
-          <span class="lineup-toggle__track" aria-hidden="true"><span class="lineup-toggle__thumb"></span></span>
-        </button>
+        
         <details class="lang">
           <summary class="lang__toggle"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-globe"/></svg><span class="lang__current">Español</span><span class="visually-hidden">. Elige un idioma</span><svg class="icon lang__chev" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></summary>
           <ul class="lang__menu" role="list">
@@ -92,7 +88,7 @@
             <a class="btn btn--ghost" href="/es/our-story/">Lee nuestra historia</a>
           </div>
         </div>
-        <div class="hero__art" role="img" aria-label="Empaques de Winslow Pantry del reposacucharas de silicona, las pinzas magnéticas y los embudos de silicona" data-label-all="Empaques de Winslow Pantry del reposacucharas de silicona, las pinzas magnéticas y los embudos de silicona" data-label-launch="Pinzas magnéticas Winslow Pantry en su empaque">
+        <div class="hero__art" role="img" aria-label="Pinzas magnéticas Winslow Pantry en su empaque" data-label-all="Empaques de Winslow Pantry del reposacucharas de silicona, las pinzas magnéticas y los embudos de silicona" data-label-launch="Pinzas magnéticas Winslow Pantry en su empaque">
           <img class="hero__pkg hero__pkg--a" src="/assets/img/products/bag-clips.webp" width="760" height="1190" alt="" fetchpriority="high">
           <img class="hero__pkg hero__pkg--b" src="/assets/img/products/utensil-rest.webp" width="640" height="873" alt="" data-show="all">
           <img class="hero__pkg hero__pkg--c" src="/assets/img/products/funnels.webp" width="640" height="1034" alt="" data-show="all">
